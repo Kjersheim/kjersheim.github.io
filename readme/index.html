@@ -10,7 +10,7 @@
     <link rel="stylesheet" href='http://localhost:1313/css/light.css' />
     <link rel="stylesheet" href='http://localhost:1313/css/dark.css' />
     <link rel="stylesheet" href='http://localhost:1313/css/syntax.css' />
-    <title>Data Networks Episode 3: Ethernet, Switching and VLANs - Kjersheim - Projects &amp; Docs</title>
+    <title>Readme - Kjersheim - Projects &amp; Docs</title>
     
     <link rel="icon" type="image/x-icon" href='http://localhost:1313/images/favicon.ico'>
     
@@ -21,17 +21,17 @@
 
     
     <meta name="description"
-  content="Subnetting exercises, registry lookups, and practical analysis of IP address ranges using real-world tools and registries." />
+  content="Links TryHackMe Github Linkedin Bluesky Tools CyberChef DuckDNS DevDocs Math Symbols Big-O Cheatsheet WolframAlpha IP Calculator " />
 <meta name="keywords"
   content='' />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="http://localhost:1313/post/data-networks-ep3/" />
+<link rel="canonical" href="http://localhost:1313/readme/" />
 
 
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Data Networks Episode 3: Ethernet, Switching and VLANs - Kjersheim - Projects &amp; Docs" />
+<meta name="twitter:title" content="Readme - Kjersheim - Projects &amp; Docs" />
 <meta name="twitter:description"
-  content="Subnetting exercises, registry lookups, and practical analysis of IP address ranges using real-world tools and registries." />
+  content="Links TryHackMe Github Linkedin Bluesky Tools CyberChef DuckDNS DevDocs Math Symbols Big-O Cheatsheet WolframAlpha IP Calculator " />
 <meta name="twitter:site" content="http://localhost:1313/" />
 <meta name="twitter:creator" content="" />
 <meta name="twitter:image"
@@ -39,17 +39,17 @@
 
 
 <meta property="og:type" content="article" />
-<meta property="og:title" content="Data Networks Episode 3: Ethernet, Switching and VLANs - Kjersheim - Projects &amp; Docs">
+<meta property="og:title" content="Readme - Kjersheim - Projects &amp; Docs">
 <meta property="og:description"
-  content="Subnetting exercises, registry lookups, and practical analysis of IP address ranges using real-world tools and registries." />
-<meta property="og:url" content="http://localhost:1313/post/data-networks-ep3/" />
-<meta property="og:site_name" content="Data Networks Episode 3: Ethernet, Switching and VLANs" />
+  content="Links TryHackMe Github Linkedin Bluesky Tools CyberChef DuckDNS DevDocs Math Symbols Big-O Cheatsheet WolframAlpha IP Calculator " />
+<meta property="og:url" content="http://localhost:1313/readme/" />
+<meta property="og:site_name" content="Readme" />
 <meta property="og:image"
   content="http://localhost:1313/">
 <meta property="og:image:width" content="2048">
 <meta property="og:image:height" content="1024">
 
-<meta property="article:published_time" content="2023-02-02 00:00:00 &#43;0000 UTC" />
+<meta property="article:published_time" content="2025-05-27 13:50:57 &#43;0300 EEST" />
 
 
 
@@ -145,13 +145,13 @@
                   </span>
                   <span class="path-divider">/</span>
                   <strong class="css-truncate css-truncate-target mr-1" style="max-width: 410px">
-                    <a href="http://localhost:1313/post/data-networks-ep3/">Data Networks Episode 3: Ethernet, Switching and VLANs</a>
+                    <a href="http://localhost:1313/readme/">Readme</a>
                   </strong>
                 </h1>
                 <div class="note m-0">
-                  Created <relative-time datetime="Thu, 02 Feb 2023 00:00:00 &#43;0000"
+                  Created <relative-time datetime="Tue, 27 May 2025 13:50:57 &#43;0300"
                     class="no-wrap">
-                    Thu, 02 Feb 2023 00:00:00 &#43;0000</relative-time>
+                    Tue, 27 May 2025 13:50:57 &#43;0300</relative-time>
 
                   
                 </div>
@@ -182,7 +182,7 @@
                         </div>
                       </div>
                     </details-menu>
-                      139 Words
+                      16 Words
                     
 
                   </div>
@@ -194,107 +194,23 @@
 
 
               <div class="Box-body px-5 pb-5" style="z-index: 1">
-                <article class="markdown-body entry-content container-lg"><p>Reference number used to change subnet values: 2208339  // vvxyzki</p>
-<p>10.xy.yz.0/24     -&gt;     10.08.83.0/24<br>
-192.168.ki.0/24   -&gt;     192.168.39.0/24</p>
-<h1 id="calculating-networks">Calculating Networks</h1>
-<h3 id="exercise-1">Exercise 1</h3>
-<pre tabindex="0"><code>192.168.39.0/24
-</code></pre><p><em>Address range:</em><br>
-192.168.39.0 <strong>/24</strong> – 8 bits remaining, 2^8 = 256 possible addresses in the range 0 - 255.</p>
-<p>&hellip;</p>
-<p><em>Broadcast address:</em><br>
-192.168.39.255</p>
-<p><em>Subnet address:</em><br>
-192.168.39.0</p>
-<p>&hellip;</p>
-<table>
-  <thead>
-      <tr>
-          <th>Specification</th>
-          <th>Subnet No. 1</th>
-          <th>Subnet No. 2</th>
-          <th>Subnet No. 3</th>
-          <th>Subnet No. 4</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Network address</td>
-          <td>192.168.39.0/26</td>
-          <td>192.168.39.64/26</td>
-          <td>192.168.39.128/26</td>
-          <td>192.168.39.192/26</td>
-      </tr>
-      <tr>
-          <td>New subnet mask</td>
-          <td>255.255.255.192</td>
-          <td></td>
-          <td></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>Number of usable host addresses</td>
-          <td>62</td>
-          <td>62</td>
-          <td>62</td>
-          <td>62</td>
-      </tr>
-      <tr>
-          <td>First IP Host</td>
-          <td>192.168.39.1</td>
-          <td>192.168.39.65</td>
-          <td>192.168.39.129</td>
-          <td>192.168.39.193</td>
-      </tr>
-      <tr>
-          <td>Last IP Host</td>
-          <td>192.168.39.62</td>
-          <td>192.168.39.126</td>
-          <td>192.168.39.190</td>
-          <td>192.168.39.254</td>
-      </tr>
-      <tr>
-          <td>Broadcast address</td>
-          <td>192.168.39.63</td>
-          <td>192.168.39.127</td>
-          <td>192.168.39.191</td>
-          <td>192.168.39.255</td>
-      </tr>
-  </tbody>
-</table>
-<p>&hellip;</p>
-<h3 id="exercise-5">Exercise 5</h3>
-<p><strong>Is 10.08.83.0/24 a part of 10.08.16.0/20?</strong></p>
-<p>Comparing binary:
-<img src="/images/network-doc/E03/CompareBinaries.png" alt=""></p>
-<p><strong>Answer:</strong> ❌ No, it is not within the supernet.</p>
-<p>&hellip;</p>
-<h3 id="looking-up-addresses">Looking up addresses</h3>
-<p>IPv6 shown by default:
-<img src="/images/network-doc/E03/IPv6.png" alt=""></p>
-<p>IPv6 results:
-<img src="/images/network-doc/E03/RipeResultIPv6.png" alt=""></p>
-<p>Disabled IPv6:
-<img src="/images/network-doc/E03/DisablingIPv6.png" alt=""><br>
-<img src="/images/network-doc/E03/IPv4.png" alt=""><br>
-<img src="/images/network-doc/E03/RipeResultIPv4.png" alt=""></p>
-<p>&hellip;</p>
-<h1 id="internet-registries">Internet Registries</h1>
-<h2 id="1950883024"><strong>195.08.83.0/24</strong></h2>
-<h2><img src="/images/network-doc/E03/address1_apnic.png" alt=""><br>
-<img src="/images/network-doc/E03/address1_apnic2.png" alt=""><br>
-<img src="/images/network-doc/E03/address1_arin.png" alt=""><br>
-<img src="/images/network-doc/E03/address1_arin2.png" alt=""></h2>
-<h2 id="430839024"><strong>43.08.39.0/24</strong></h2>
-<h2><img src="/images/network-doc/E03/address2_milacnic.png" alt=""><br>
-<img src="/images/network-doc/E03/address2_milacnic2.png" alt=""><br>
-<img src="/images/network-doc/E03/address2_arin.png" alt=""></h2>
-<h2 id="153908024"><strong>15.39.08.0/24</strong></h2>
-<h2><img src="/images/network-doc/E03/address3_arin.png" alt=""></h2>
-<h2 id="1008339024"><strong>100.83.39.0/24</strong></h2>
-<h2><img src="/images/network-doc/E03/address4_arin.png" alt=""><br>
-<img src="/images/network-doc/E03/milacnic.png" alt=""></h2>
+                <article class="markdown-body entry-content container-lg"><h2 id="links">Links</h2>
+<ul>
+<li><a href="https://tryhackme.com/p/AKjers">TryHackMe</a></li>
+<li><a href="https://www.github.com/kjersheim">Github</a></li>
+<li><a href="https://www.linkedin.com/in/kjersheim">Linkedin</a></li>
+<li><a href="https://bsky.app/profile/kjers.bsky.social">Bluesky</a></li>
+</ul>
+<h2 id="tools">Tools</h2>
+<ul>
+<li><a href="https://gchq.github.io/CyberChef/">CyberChef</a></li>
+<li><a href="https://www.duckdns.org/">DuckDNS</a></li>
+<li><a href="https://devdocs.io/">DevDocs</a></li>
+<li><a href="https://math.typeit.org/">Math Symbols</a></li>
+<li><a href="https://www.bigocheatsheet.com/">Big-O Cheatsheet</a></li>
+<li><a href="https://www.wolframalpha.com/">WolframAlpha</a></li>
+<li><a href="https://jodies.de/ipcalc">IP Calculator</a></li>
+</ul>
 </article>
               </div>
             </div>
