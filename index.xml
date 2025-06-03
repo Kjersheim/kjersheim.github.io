@@ -6,7 +6,7 @@
     <description>Recent content on Kjersheim - Projects &amp; Docs</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 28 May 2025 10:08:24 +0300</lastBuildDate>
+    <lastBuildDate>Tue, 03 Jun 2025 14:11:04 +0300</lastBuildDate>
     <atom:link href="https://kjersheim.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Readme</title>
@@ -21,6 +21,13 @@
       <pubDate>Tue, 10 Dec 2024 00:00:00 +0000</pubDate>
       <guid>https://kjersheim.github.io/post/log-project/</guid>
       <description>A Tailwind and Vite-powered web project documenting the process of creating a responsive learning log from scratch—design, layout, deployment, and lessons learned.</description>
+    </item>
+    <item>
+      <title>MrRobot-1 VulnHub Challenge – Full Walkthrough</title>
+      <link>https://kjersheim.github.io/post/mrrobot/</link>
+      <pubDate>Fri, 12 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://kjersheim.github.io/post/mrrobot/</guid>
+      <description>A full penetration test walkthrough of the MrRobot-1 VM from VulnHub, including network setup, enumeration, brute force login with Hydra, exploitation via reverse shell, privilege escalation, and root flag discovery.</description>
     </item>
     <item>
       <title>BadStore.net Security Challenge: An Investigative Walkthrough</title>
