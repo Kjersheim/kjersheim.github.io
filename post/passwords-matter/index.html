@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script type="application/javascript" src='https://kjersheim.github.io/js/theme-mode.js'></script>
+    <link rel="stylesheet" href='https://kjersheim.github.io/css/frameworks.min.css' />
+    <link rel="stylesheet" href='https://kjersheim.github.io/css/github.min.css' />
+    <link rel="stylesheet" href='https://kjersheim.github.io/css/github-style.css' />
+    <link rel="stylesheet" href='https://kjersheim.github.io/css/light.css' />
+    <link rel="stylesheet" href='https://kjersheim.github.io/css/dark.css' />
+    <link rel="stylesheet" href='https://kjersheim.github.io/css/syntax.css' />
+    <title>Why Password Security Still Matters - Kjersheim - Projects &amp; Docs</title>
+    
+    <link rel="icon" type="image/x-icon" href='https://kjersheim.github.io/images/favicon.ico'>
+    
+    <meta name="theme-color" content="#1e2327">
+
+    
+    
+
+    
+    <meta name="description"
+  content="An overview of why robust password practices—such as hashing, salting, and strong policies—remain essential defenses against both offline and online attacks." />
+<meta name="keywords"
+  content='' />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://kjersheim.github.io/post/passwords-matter/" />
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Why Password Security Still Matters - Kjersheim - Projects &amp; Docs" />
+<meta name="twitter:description"
+  content="An overview of why robust password practices—such as hashing, salting, and strong policies—remain essential defenses against both offline and online attacks." />
+<meta name="twitter:site" content="https://kjersheim.github.io/" />
+<meta name="twitter:creator" content="" />
+<meta name="twitter:image"
+  content="https://kjersheim.github.io/">
+
+
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Why Password Security Still Matters - Kjersheim - Projects &amp; Docs">
+<meta property="og:description"
+  content="An overview of why robust password practices—such as hashing, salting, and strong policies—remain essential defenses against both offline and online attacks." />
+<meta property="og:url" content="https://kjersheim.github.io/post/passwords-matter/" />
+<meta property="og:site_name" content="Why Password Security Still Matters" />
+<meta property="og:image"
+  content="https://kjersheim.github.io/">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2024-03-20 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+<body>
+  <div style="position: relative">
+  <header class="Header js-details-container Details px-3 px-md-4 px-lg-5 flex-wrap flex-md-nowrap open Details--on">
+    <div class="Header-item mobile-none" style="margin-top: -4px; margin-bottom: -4px;">
+      <a class="Header-link" href="https://kjersheim.github.io/">
+        <img class="octicon" height="32" width="32" src="/images/avatar.svg">
+      </a>
+    </div>
+    <div class="Header-item d-md-none">
+      <button class="Header-link btn-link js-details-target" type="button"
+        onclick="document.querySelector('#header-search').style.display = document.querySelector('#header-search').style.display == 'none'? 'block': 'none'">
+        <svg height="24" class="octicon octicon-three-bars" viewBox="0 0 16 16" version="1.1" width="24">
+          <path fill-rule="evenodd" d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z">
+          </path>
+        </svg>
+      </button>
+    </div>
+    <div style="display: none;" id="header-search"
+      class="Header-item Header-item--full flex-column flex-md-row width-full flex-order-2 flex-md-order-none mr-0 mr-md-3 mt-3 mt-md-0 Details-content--hidden-not-important d-md-flex">
+      <div
+        class="Header-search header-search flex-auto js-site-search position-relative flex-self-stretch flex-md-self-auto mb-3 mb-md-0 mr-0 mr-md-3 scoped-search site-scoped-search js-jump-to">
+        <div class="position-relative">
+          
+          <form target="_blank" action="https://www.google.com/search" accept-charset="UTF-8" method="get"
+            autocomplete="off">
+            <label
+              class="Header-search-label form-control input-sm header-search-wrapper p-0 js-chromeless-input-container header-search-wrapper-jump-to position-relative d-flex flex-justify-between flex-items-center">
+              <input type="text"
+                class="Header-search-input form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus js-site-search-field is-clearable"
+                name="q" value="" placeholder="Search" autocomplete="off">
+              <input type="hidden" name="q" value="site:https://kjersheim.github.io/">
+            </label>
+          </form>
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="Header-item Header-item--full flex-justify-center d-md-none position-relative">
+      <a class="Header-link " href="https://kjersheim.github.io/">
+        <img class="octicon octicon-mark-github v-align-middle" height="32" width="32" src="/images/avatar.svg">
+      </a>
+    </div>
+    <div class="Header-item" style="margin-right: 0;">
+      <a href="javascript:void(0)" class="Header-link no-select" onclick="switchTheme()">
+        <svg style="fill: var(--color-profile-color-modes-toggle-moon);" class="no-select" viewBox="0 0 16 16"
+          version="1.1" width="16" height="16">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M4.52208 7.71754C7.5782 7.71754 10.0557 5.24006 10.0557 2.18394C10.0557 1.93498 10.0392 1.68986 10.0074 1.44961C9.95801 1.07727 10.3495 0.771159 10.6474 0.99992C12.1153 2.12716 13.0615 3.89999 13.0615 5.89383C13.0615 9.29958 10.3006 12.0605 6.89485 12.0605C3.95334 12.0605 1.49286 10.001 0.876728 7.24527C0.794841 6.87902 1.23668 6.65289 1.55321 6.85451C2.41106 7.40095 3.4296 7.71754 4.52208 7.71754Z">
+          </path>
+        </svg>
+      </a>
+    </div>
+  </header>
+</div>
+
+  <div id="search-result" class="container-lg px-3 new-discussion-timeline" style="display: none;">
+</div>
+
+  
+<div class="application-main">
+  <div>
+  <main>
+    <div class="gisthead pagehead bg-gray-light pb-0 pt-3 mb-4">
+      <div class="px-0">
+        <div class="mb-3 d-flex px-3 px-md-3 px-lg-5">
+          <div class="flex-auto min-width-0 width-fit mr-3">
+            <div class="d-flex">
+              <div class="d-none d-md-block">
+                <a class="avatar mr-2 flex-shrink-0" href="https://kjersheim.github.io/">
+                  <img class=" avatar-user"
+                    src="/images/avatar.png"
+                    width="32" height="32"></a>
+              </div>
+              <div class="d-flex flex-column">
+                <h1 class="break-word f3 text-normal mb-md-0 mb-1">
+                  <span class="author">
+                    <a href="https://kjersheim.github.io/">Andreas</a>
+                  </span>
+                  <span class="path-divider">/</span>
+                  <strong class="css-truncate css-truncate-target mr-1" style="max-width: 410px">
+                    <a href="https://kjersheim.github.io/post/passwords-matter/">Why Password Security Still Matters</a>
+                  </strong>
+                </h1>
+                <div class="note m-0">
+                  Created <relative-time datetime="Wed, 20 Mar 2024 00:00:00 &#43;0000"
+                    class="no-wrap">
+                    Wed, 20 Mar 2024 00:00:00 &#43;0000</relative-time>
+
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-lg px-3 new-discussion-timeline">
+      <div class="repository-content gist-content">
+        <div>
+          <div class="js-gist-file-update-container js-task-list-container file-box">
+            <div id="file-pytest" class="file my-2">
+              <div id="post-header" class="file-header d-flex flex-md-items-center flex-items-start sticky-header" style="z-index: 2">
+                <div class="file-info d-flex flex-md-items-center flex-items-start flex-order-1 flex-auto">
+                  <div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1 mt-2 mt-md-0">
+                    
+                    <summary id="toc-toggle" onclick="clickToc()" class="btn btn-octicon m-0 mr-2 p-2">
+                      <svg aria-hidden="true" viewBox="0 0 16 16" height="16" width="16" class="octicon octicon-list-unordered">
+                        <path fill-rule="evenodd" d="M2 4a1 1 0 100-2 1 1 0 000 2zm3.75-1.5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zM3 8a1 1 0 11-2 0 1 1 0 012 0zm-1 6a1 1 0 100-2 1 1 0 000 2z"></path>
+                      </svg>
+                    </summary>
+                    <details-menu class="SelectMenu" id="toc-details" style="display: none;">
+                      <div class="SelectMenu-modal rounded-3 mt-1" style="max-height: 340px;">
+                        <div class="SelectMenu-list SelectMenu-list--borderless p-2" style="overscroll-behavior: contain;" id="toc-list">
+                        </div>
+                      </div>
+                    </details-menu>
+                      2025 Words
+                    
+
+                  </div>
+                  <div class="file-actions flex-order-2 pt-0">
+                    
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="Box-body px-5 pb-5" style="z-index: 1">
+                <article class="markdown-body entry-content container-lg"><p><img src="/images/passwords-matter/header.jpg" alt="Passwords matter header image"></p>
+<h1 id="why-password-security-still-matters">Why Password Security Still Matters</h1>
+<p>Even in an era increasingly dominated by multi-factor authentication (MFA), passwords remain the primary gatekeeper for countless systems and services. Data breaches consistently reveal that weak or compromised passwords are among the top culprits for unauthorized access. For example, public breaches often expose password hashes which attackers can crack offline, granting them immediate entry to user accounts. As long as passwords are used, understanding how they are stored, why hashing and salting are essential, and how attackers attempt to reverse them is crucial for both security practitioners and end users.</p>
+<h1 id="authentication-factors--access-control-basics">Authentication Factors &amp; Access Control Basics</h1>
+<p>Effective access control hinges on four interconnected components: <em>Identification, Authentication, Authorization, and Accountability.</em></p>
+<p><strong>Identification</strong> asks, “Who are you?” and typically involves presenting a username or user ID.</p>
+<p><strong>Authentication</strong> verifies that the presented identity is genuine, most commonly via passwords (knowledge factors), but also via ownership factors (like hardware tokens) or characteristic factors (biometrics).</p>
+<p><strong>Authorization</strong> determines what the authenticated user is allowed to do—what resources they can access and what actions they can perform.</p>
+<p><strong>Accountability</strong> tracks and logs user actions, ensuring that any changes or accesses can be traced back to a specific identity.</p>
+<p>When designing secure systems, it’s important to distinguish between policy definition (establishing “who should have what access”) and policy enforcement (the mechanisms, software or hardware, that enforce those rules). For example, a policy may state that only members of the “Admins” group can modify server configurations, while enforcement is handled by an access control list (ACL) on the server or centralized directory service.</p>
+<p>Authentication factors are traditionally grouped into three categories:</p>
+<ul>
+<li>
+<p>Something you know: Passwords, PINs, or passphrases.</p>
+</li>
+<li>
+<p>Something you have: Hardware tokens (like YubiKeys), software tokens (such as TOTP apps), or smart cards.</p>
+</li>
+<li>
+<p>Something you are: Biometrics, including fingerprints, facial recognition, or iris scans.</p>
+</li>
+</ul>
+<p>While MFA (e.g., combining a password with a one-time code from a hardware token) significantly increases security, the initial “something you know” factor still relies on proper password storage and handling to remain effective.</p>
+<h1 id="password-storage-101">Password Storage 101</h1>
+<p>Storing passwords in plaintext is universally recognized as a critical security failure: if an attacker acquires the password database, every account is immediately compromised. To avoid this, modern systems use cryptographic hash functions to transform a plaintext password into a fixed-size string of characters that cannot feasibly be reversed.</p>
+<p>A cryptographic hash function can include some important properties:</p>
+<p><strong>Determinism:</strong> The same input always produces the same output.</p>
+<p><strong>Fixed-size output:</strong> Regardless of input length, the hash is of a fixed length (e.g., 256 bits for SHA-256).</p>
+<p><strong>Preimage resistance:</strong> Given a hash value, it should be computationally infeasible to find any input that maps to that hash.</p>
+<p><strong>Collision resistance:</strong> It should be hard to find two distinct inputs that produce the same hash.</p>
+<p>Common hash algorithms used in practice include the SHA (Secure Hash Algorithm) families—SHA-1, SHA-256, SHA-512—and newer standards like SHA-3. Non-cryptographic hashes (e.g., CRC32) are fast but lack the collision resistance needed for secure password storage.</p>
+<p>A typical password storage workflow looks like this: <em>when a user sets a password, the system computes hash = H(password) and stores hash (not the plaintext). When the user logs in, they provide their password again, the system computes H(provided_password), and compares it to the stored hash. If they match, authentication succeeds.</em> However, this alone is insufficient against offline attacks, where an attacker steals the password database containing these hashes and attempts to reverse them through brute-force or dictionary attacks.</p>
+<h1 id="salting-and-slow-hashing">Salting and Slow Hashing</h1>
+<p>To mitigate offline attacks, two primary techniques are used: salting and slow hashing.
+What Is a Salt?</p>
+<p>A salt is a random string, typically unique per user, that is concatenated with the password before hashing. Formally, if s is the salt and p is the password, the stored value is H(s ∥ p) where “∥” denotes concatenation. The salt is stored in plaintext alongside the hash (e.g., in the /etc/shadow file on Linux systems). By including a unique salt per password, two users with the same password will have different hash outputs, and precomputed rainbow tables become useless unless they were generated for that specific salt.</p>
+<p>For example, on many Unix-like systems, the /etc/shadow entry for a user looks like:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>alice:$6$YKGPfU93QZBdWd38$kRmiZ5e1B48kdQxVhkZ6BvY...F5:...
+</span></span></code></pre></div><p>Here,</p>
+<pre><code>$6$ indicates SHA-512,
+
+YKGPfU93QZBdWd38 is the salt,
+
+the long string after the salt is the SHA-512 hash of salt ∥ password.
+</code></pre>
+<h2 id="example-of-extracting-a-salt-value">Example of extracting a salt value</h2>
+<p>As a test, we create a user with the login/password values goodguy/password. Reading the shadow-file, we see the entry for the newly added user, indicated below with a green square. We should see something like:</p>
+<p>goodguy:$y$j9T$Pr/BoHmQ8ZjNTwj2VRU08.$0ltkT9US3Pe4C6pd202gWEDknIdTy8aPtrcg6snf0b9:19766:0:999:7:::</p>
+<p>In this field, the first dollar‐sign group ($y$) indicates the hashing algorithm/parameters, the next group (j9T) is the internal cost factor, and the third group (Pr/BoHmQ8ZjNTwj2VRU08.) is the actual salt. When we combine them as &ldquo;$y$j9T$Pr/BoHmQ8ZjNTwj2VRU08.&rdquo;, that entire string becomes what Python needs to re‐compute the hash.</p>
+<p><img src="/images/passwords-matter/1.jpg" alt="Creating user and checking the shadow file"></p>
+<p>Next, use Python’s built‐in crypt library to verify the hash. As we know the goodguy’s plaintext password is literally <em>password</em>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python3 - <span style="color:#e6db74">&lt;&lt; &#39;EOF&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">import crypt
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">salt_field = &#39;$y$j9T$Pr/BoHmQ8ZjNTwj2VRU08.&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">hashed = crypt.crypt(&#39;password&#39;, salt_field)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">print(hashed)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
+</span></span></code></pre></div><p><img src="/images/passwords-matter/2.jpg" alt="Extracting the salt"></p>
+<p>That matches exactly the string we saw in /etc/shadow for goodguy, demonstrating that we&rsquo;ve correctly extracted the salt and re‐generated the same hash. In other words, we’ve proven that the salt field (Pr/BoHmQ8ZjNTwj2VRU08.) is all we need—along with the algorithm identifier—to recreate or verify goodguy’s password hash.</p>
+<h2 id="reversing-md5-hashes">Reversing MD5 Hashes</h2>
+<p>Despite MD5’s known cryptographic weaknesses, many legacy systems still use it for non-critical checksums, and sometimes (unwisely) for password hashing. Since MD5 hashes are fast to compute and have been extensively precomputed, reversing them via online lookup or rainbow tables is trivial.</p>
+<p>As a test, I have previously been asked to e.g. inspect hashed passwords stored in databases, on web servers user overviews, and so on. Finding a list of usernames alongside their MD5-hashed passwords is not uncommon even these days.</p>
+<p><strong>Example MD5 hash</strong>: 13c3a11755a5ebec80f457cc5c105cbc.</p>
+<p>Reverse Lookup - By submitting this MD5 hash (13c3a11755a5ebec80f457cc5c105cbc) to an online MD5 reverse-lookup tool, the plaintext password kissa123 was retrieved, and quickly at that!</p>
+<p><img src="/images/passwords-matter/3.jpg"
+alt="Reverse MD5 Lookup"
+width="300" /></p>
+<h1 id="offline-vs-online-attacks">Offline vs. Online Attacks</h1>
+<p>When an attacker steals a database of unsalted or weakly protected hashes, they can perform offline attacks—attempting guesses at their leisure without interacting with the live authentication system. Two primary offline attack methods are:</p>
+<h2 id="dictionary-attacks">Dictionary Attacks</h2>
+<p>Using a wordlist (e.g., the “rockyou” wordlist), attackers hash each candidate password with the known salt (if any) and compare to the stolen hash.</p>
+<p>If the password is common (e.g., “password123”), it is found quickly—in seconds or less, depending on the hash algorithm’s speed.</p>
+<h2 id="brute-force-attacks">Brute-Force Attacks</h2>
+<p>Trying all possible combinations of characters, starting from shortest to longest, until the correct password is found.</p>
+<p>The time required grows exponentially with each additional character and character class (lowercase, uppercase, digits, symbols).</p>
+<p>As a rule of thumb, a 5–6 character alphanumeric password can be cracked in seconds; a 7–8 character password in minutes to hours on a modern GPU-equipped cracking rig. Longer or more complex passwords become infeasible.</p>
+<h2 id="rainbow-table-attacks">Rainbow-Table Attacks</h2>
+<p>Precomputed tables of hashes for every possible password up to a certain length and character set.</p>
+<p>Without salts, an attacker loads a rainbow table into memory and instantly looks up a hash to find its corresponding password.</p>
+<p>With a unique salt per password, a new rainbow table is needed for each salt, rendering rainbow tables largely ineffective against properly salted hashes.</p>
+<p>By contrast, online attacks involve repeatedly submitting guesses to the authentication service itself. Though slower (since network latency and server response times come into play), they can target rate-limited systems. Good defenses against online attacks include account lockouts, CAPTCHA challenges, and MFA.</p>
+<h2 id="hands-on-cracking-a-real-password">Hands-On: Cracking a Real Password</h2>
+<p>To illustrate how these attacks work in practice, let’s walk through an exercise I previously completed, in which a password-protected ZIP archive was cracked, and then a Linux shadow file was bruteforced. We are finding the password for the zipfile TryCrackMe.zip on the kali VM desktop. Within the file we have a textfile containing a token.</p>
+<p><img src="/images/passwords-matter/4.jpg"
+alt="zip file"
+width="400" /></p>
+<p>By using the fcrackzip tool (a utility designed for ZIP password cracking) and supplying the widely used “rockyou” wordlist (/usr/share/wordlists/rockyou.txt in most kali distros), the correct password was discovered.</p>
+<p><img src="/images/passwords-matter/5.jpg"
+alt="using fcrackzip"
+width="400" /></p>
+<h2 id="hands-on-cracking-a-linux-shadow-file">Hands-On: Cracking a linux shadow file</h2>
+<p>As a test, we use grep to search the shadow file (/etc/shadow) for the entry for the user called <em>victim</em>. By copying that to a separate file named <em>shadow</em>, we stored the entry (the entire line). Looking at the hash, we see the algorithm parameter is listed as $6$, which would be SHA-512.</p>
+<p><img src="/images/passwords-matter/6.jpg"
+alt="shadow file"
+width="600" /></p>
+<p>Continuing, we do the same for the passwd file entry (/etc/passwd), redirecting the output to a new file called passwd (instead of manually copying using nano, as done for the shadow part).</p>
+<p><img src="/images/passwords-matter/7.jpg"
+alt="passwd file"
+width="600" /></p>
+<p>The unshadow command merges our copies of Linux&rsquo;s /etc/passwd and /etc/shadow files to produce a single file containing both user account details and hashed passwords in a format suitable for cracking.</p>
+<p><img src="/images/passwords-matter/8.jpg"
+alt="using unshadow"
+width="600" /></p>
+<p>With John the Ripper, we can then use this combined file, applying its specified hash algorithm (e.g., SHA-512) and wordlists, to systematically attempt to match hash values against potential passwords. When a hash match is found, John outputs the plaintext password, allowing verification or unauthorized access detection.</p>
+<p><img src="/images/passwords-matter/9.jpg"
+alt="johntheripper formats"
+width="600" /></p>
+<p>As I ran several tests and tried different parameters, I made copies of the victim.txt and in the last successful file it was named shadowcopy.txt.</p>
+<p><img src="/images/passwords-matter/10.jpg"
+alt="running john using rockyou.txt and the shadow and passwd file combined"
+width="600" /></p>
+<p>Testing the password <em>chucknorrisrules80</em> to log into the victim user in my Kali box is successful.</p>
+<p><img src="/images/passwords-matter/11.jpg"
+alt="successful login using the cracked password"
+width="600" /></p>
+<h1 id="protecting-against-these-attacks">Protecting Against These Attacks</h1>
+<p>Given the variety of offline and online cracking techniques, defense-in-depth is essential. As a quick summary:</p>
+<h2 id="enforce-strong-unique-passwords">Enforce Strong, Unique Passwords</h2>
+<p>Length and complexity: Require at least 12 characters, mixing uppercase, lowercase, digits, and symbols. Longer passphrases (e.g., a sentence or four random words) can be both memorable and secure.</p>
+<p>Password managers: Encourage users to adopt password managers (e.g., Bitwarden, LastPass) over reusing or weak passwords.</p>
+<h2 id="use-salted-slow-hash-algorithms">Use Salted Slow Hash Algorithms</h2>
+<p>Avoid fast hashes like MD5, SHA-1, or raw SHA-256 for password storage. Instead, use bcrypt, Argon2, or PBKDF2 with a high iteration count.</p>
+<p>Ensure each user has a unique, cryptographically random salt at least 16 bytes in length.</p>
+<h2 id="rate-limiting-and-account-lockouts">Rate Limiting and Account Lockouts</h2>
+<p>Implement throttling (e.g., no more than five failed login attempts per hour) to frustrate online dictionary or brute-force attempts.</p>
+<p>Employ temporary account lockouts or CAPTCHA challenges after multiple failures.</p>
+<h2 id="multi-factor-authentication-mfa">Multi-Factor Authentication (MFA)</h2>
+<p>Whenever possible, add a second factor (e.g., TOTP app, hardware token, SMS code) to complement passwords. Even if an attacker obtains a password, they cannot log in without the second factor.</p>
+<p>Be mindful of MFA pitfalls (e.g., SMS-based codes can be intercepted via SIM swapping), and prefer authenticator apps or hardware keys.</p>
+<h2 id="monitor-and-respond">Monitor and Respond</h2>
+<p>Regularly audit systems for weak or reused passwords. Tools like “Password Spraying Detector” can identify anomalous authentication patterns.</p>
+<p>If a breach is detected, force password resets for exposed accounts.</p>
+<h2 id="educate-users">Educate Users</h2>
+<p>Teach users (employees, friends, family, whoever!) about phishing, social engineering, and the importance of never reusing passwords across multiple sites.</p>
+<p>Encourage periodic password changes if there’s evidence of exposure (though forced periodic rotation without cause can lead to weaker passwords or insecure storage).</p>
+<p>By combining these measures, strong password policies, proper hashing and salting, MFA, and vigilant monitoring, we can drastically reduce the risk posed by offline cracking and online guessing attacks.</p>
+<h1 id="conclusion--further-reading">Conclusion &amp; Further Reading</h1>
+<p>I hope this rather comprehensive guide has helped and walked through the theory behind password security—covering access control fundamentals, cryptographic hashes, salting, and slow hashing, as well as practical demonstrations of how attackers reverse insecure password stores. By understanding and implementing these best practices, security teams and others alike can strengthen their security!</p>
+<p>For more in-depth reading, make sure to check out:</p>
+<ul>
+<li>
+<p>NIST SP 800-63B: Digital Identity Guidelines on Authentication and Lifecycle Management.</p>
+</li>
+<li>
+<p>OWASP Password Storage Cheat Sheet: Recommendations on secure password hashing and storage.</p>
+</li>
+<li>
+<p>CyberChef (GCHQ’s “Cyber Swiss Army Knife”): A flexible web-based tool for encoding, decoding, and hashing data.</p>
+</li>
+<li>
+<p>John the Ripper &amp; Hashcat Documentation: For learning advanced configuration and GPU-based cracking techniques.</p>
+</li>
+</ul>
+<p>Maintaining secure passwords is an ongoing process: as computational power grows and new attack techniques emerge, organizations (and all of us) must continually reevaluate hashing parameters, policy enforcement, and user education to stay ahead of adversaries.</p>
+</article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script type="application/javascript" src='https://kjersheim.github.io/js/toc.js'></script>
+<link rel="stylesheet" href='https://kjersheim.github.io/css/toc.css' />
+
+  
+</div>
+
+  <div class="footer container-xl width-full p-responsive">
+  <div
+    class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between flex-sm-items-center pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
+    <a aria-label="Homepage" title="GitHub" class="footer-octicon d-none d-lg-block mr-lg-4" href="https://kjersheim.github.io/">
+      <svg height="24" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="24">
+        <path fill-rule="evenodd"
+          d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+        </path>
+      </svg>
+    </a>
+    <ul class="list-style-none d-flex flex-wrap col-12 flex-justify-center flex-lg-justify-between mb-2 mb-lg-0">
+      
+      <li class="mr-3 mr-lg-0">Theme by <a href='https://github.com/MeiK2333/github-style'>github-style</a></li>
+      
+      <li class="mr-3 mr-lg-0">GitHub and the Invertocat logo are trademarks of <a href="https://github.com/">GitHub, Inc.</a></li>
+    </ul>
+  </div>
+  <div class="d-flex flex-justify-center pb-6">
+    <span class="f6 text-gray-light"></span>
+  </div>
+
+
+</div>
+
+</body>
+
+<script type="application/javascript" src="https://kjersheim.github.io/js/github-style.js"></script>
+
+
+
+
+
+
+
+</html>
