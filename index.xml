@@ -6,7 +6,7 @@
     <description>Recent content on Kjersheim - Projects &amp; Docs</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 04 Jun 2025 10:43:53 +0300</lastBuildDate>
+    <lastBuildDate>Wed, 04 Jun 2025 13:37:05 +0300</lastBuildDate>
     <atom:link href="https://kjersheim.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Readme</title>
@@ -21,6 +21,13 @@
       <pubDate>Tue, 10 Dec 2024 00:00:00 +0000</pubDate>
       <guid>https://kjersheim.github.io/post/log-project/</guid>
       <description>A Tailwind and Vite-powered web project documenting the process of creating a responsive learning log from scratch—design, layout, deployment, and lessons learned.</description>
+    </item>
+    <item>
+      <title>Malware &amp; Threat Landscape: Detection, Analysis, and Mitigation</title>
+      <link>https://kjersheim.github.io/post/malware-threat-landscape/</link>
+      <pubDate>Mon, 25 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://kjersheim.github.io/post/malware-threat-landscape/</guid>
+      <description>An in-depth examination of malware types, persistence mechanisms, and practical detection techniques using Wireshark and other tools.</description>
     </item>
     <item>
       <title>Why Password Security Still Matters</title>
