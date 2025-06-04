@@ -6,7 +6,7 @@
     <description>Recent content in Posts on Kjersheim - Projects &amp; Docs</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 04 Jun 2025 14:06:51 +0300</lastBuildDate>
+    <lastBuildDate>Wed, 04 Jun 2025 15:25:19 +0300</lastBuildDate>
     <atom:link href="https://kjersheim.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Log Project: Building a Personal Learning Log with Tailwind and Vite</title>
@@ -35,6 +35,13 @@
       <pubDate>Mon, 19 Feb 2024 00:00:00 +0000</pubDate>
       <guid>https://kjersheim.github.io/post/ff-synergy-projectplan/</guid>
       <description>The following document shows the project plan I wrote, through a joint project with 4 co-students managing the development of extra features of a pre-existing app called Tukko.</description>
+    </item>
+    <item>
+      <title>Buffer overflow analysis: stack_1</title>
+      <link>https://kjersheim.github.io/post/buffer-overflow/</link>
+      <pubDate>Thu, 25 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://kjersheim.github.io/post/buffer-overflow/</guid>
+      <description>Exploring an executable through linux and windows, using IDA community edition</description>
     </item>
     <item>
       <title>MrRobot-1 VulnHub Challenge – Full Walkthrough</title>
