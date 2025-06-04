@@ -6,8 +6,15 @@
     <description>Recent content in Posts on Kjersheim - Projects &amp; Docs</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 04 Jun 2025 15:25:19 +0300</lastBuildDate>
+    <lastBuildDate>Wed, 04 Jun 2025 16:17:07 +0300</lastBuildDate>
     <atom:link href="https://kjersheim.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Shellcode part 1</title>
+      <link>https://kjersheim.github.io/post/shellcode_part1/</link>
+      <pubDate>Fri, 13 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://kjersheim.github.io/post/shellcode_part1/</guid>
+      <description>Notes and thoughts from an exercise testing shellcodes</description>
+    </item>
     <item>
       <title>Log Project: Building a Personal Learning Log with Tailwind and Vite</title>
       <link>https://kjersheim.github.io/post/log-project/</link>
