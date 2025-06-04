@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script type="application/javascript" src='http://localhost:1313/js/theme-mode.js'></script>
+    <link rel="stylesheet" href='http://localhost:1313/css/frameworks.min.css' />
+    <link rel="stylesheet" href='http://localhost:1313/css/github.min.css' />
+    <link rel="stylesheet" href='http://localhost:1313/css/github-style.css' />
+    <link rel="stylesheet" href='http://localhost:1313/css/light.css' />
+    <link rel="stylesheet" href='http://localhost:1313/css/dark.css' />
+    <link rel="stylesheet" href='http://localhost:1313/css/syntax.css' />
+    <title>Synergy Project Plan, future factory 2023 - Kjersheim - Projects &amp; Docs</title>
+    
+    <link rel="icon" type="image/x-icon" href='http://localhost:1313/images/favicon.ico'>
+    
+    <meta name="theme-color" content="#1e2327">
+
+    
+    
+
+    
+    <meta name="description"
+  content="The following document shows the project plan I wrote, through a joint project with 4 co-students managing the development of extra features of a pre-existing app called Tukko." />
+<meta name="keywords"
+  content='' />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="http://localhost:1313/post/ff-synergy-projectplan/" />
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Synergy Project Plan, future factory 2023 - Kjersheim - Projects &amp; Docs" />
+<meta name="twitter:description"
+  content="The following document shows the project plan I wrote, through a joint project with 4 co-students managing the development of extra features of a pre-existing app called Tukko." />
+<meta name="twitter:site" content="http://localhost:1313/" />
+<meta name="twitter:creator" content="" />
+<meta name="twitter:image"
+  content="http://localhost:1313/">
+
+
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Synergy Project Plan, future factory 2023 - Kjersheim - Projects &amp; Docs">
+<meta property="og:description"
+  content="The following document shows the project plan I wrote, through a joint project with 4 co-students managing the development of extra features of a pre-existing app called Tukko." />
+<meta property="og:url" content="http://localhost:1313/post/ff-synergy-projectplan/" />
+<meta property="og:site_name" content="Synergy Project Plan, future factory 2023" />
+<meta property="og:image"
+  content="http://localhost:1313/">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2024-02-19 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+<body>
+  <div style="position: relative">
+  <header class="Header js-details-container Details px-3 px-md-4 px-lg-5 flex-wrap flex-md-nowrap open Details--on">
+    <div class="Header-item mobile-none" style="margin-top: -4px; margin-bottom: -4px;">
+      <a class="Header-link" href="http://localhost:1313/">
+        <img class="octicon" height="32" width="32" src="/images/avatar.svg">
+      </a>
+    </div>
+    <div class="Header-item d-md-none">
+      <button class="Header-link btn-link js-details-target" type="button"
+        onclick="document.querySelector('#header-search').style.display = document.querySelector('#header-search').style.display == 'none'? 'block': 'none'">
+        <svg height="24" class="octicon octicon-three-bars" viewBox="0 0 16 16" version="1.1" width="24">
+          <path fill-rule="evenodd" d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z">
+          </path>
+        </svg>
+      </button>
+    </div>
+    <div style="display: none;" id="header-search"
+      class="Header-item Header-item--full flex-column flex-md-row width-full flex-order-2 flex-md-order-none mr-0 mr-md-3 mt-3 mt-md-0 Details-content--hidden-not-important d-md-flex">
+      <div
+        class="Header-search header-search flex-auto js-site-search position-relative flex-self-stretch flex-md-self-auto mb-3 mb-md-0 mr-0 mr-md-3 scoped-search site-scoped-search js-jump-to">
+        <div class="position-relative">
+          
+          <form target="_blank" action="https://www.google.com/search" accept-charset="UTF-8" method="get"
+            autocomplete="off">
+            <label
+              class="Header-search-label form-control input-sm header-search-wrapper p-0 js-chromeless-input-container header-search-wrapper-jump-to position-relative d-flex flex-justify-between flex-items-center">
+              <input type="text"
+                class="Header-search-input form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus js-site-search-field is-clearable"
+                name="q" value="" placeholder="Search" autocomplete="off">
+              <input type="hidden" name="q" value="site:http://localhost:1313/">
+            </label>
+          </form>
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="Header-item Header-item--full flex-justify-center d-md-none position-relative">
+      <a class="Header-link " href="http://localhost:1313/">
+        <img class="octicon octicon-mark-github v-align-middle" height="32" width="32" src="/images/avatar.svg">
+      </a>
+    </div>
+    <div class="Header-item" style="margin-right: 0;">
+      <a href="javascript:void(0)" class="Header-link no-select" onclick="switchTheme()">
+        <svg style="fill: var(--color-profile-color-modes-toggle-moon);" class="no-select" viewBox="0 0 16 16"
+          version="1.1" width="16" height="16">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M4.52208 7.71754C7.5782 7.71754 10.0557 5.24006 10.0557 2.18394C10.0557 1.93498 10.0392 1.68986 10.0074 1.44961C9.95801 1.07727 10.3495 0.771159 10.6474 0.99992C12.1153 2.12716 13.0615 3.89999 13.0615 5.89383C13.0615 9.29958 10.3006 12.0605 6.89485 12.0605C3.95334 12.0605 1.49286 10.001 0.876728 7.24527C0.794841 6.87902 1.23668 6.65289 1.55321 6.85451C2.41106 7.40095 3.4296 7.71754 4.52208 7.71754Z">
+          </path>
+        </svg>
+      </a>
+    </div>
+  </header>
+</div>
+
+  <div id="search-result" class="container-lg px-3 new-discussion-timeline" style="display: none;">
+</div>
+
+  
+<div class="application-main">
+  <div>
+  <main>
+    <div class="gisthead pagehead bg-gray-light pb-0 pt-3 mb-4">
+      <div class="px-0">
+        <div class="mb-3 d-flex px-3 px-md-3 px-lg-5">
+          <div class="flex-auto min-width-0 width-fit mr-3">
+            <div class="d-flex">
+              <div class="d-none d-md-block">
+                <a class="avatar mr-2 flex-shrink-0" href="http://localhost:1313/">
+                  <img class=" avatar-user"
+                    src="/images/avatar.png"
+                    width="32" height="32"></a>
+              </div>
+              <div class="d-flex flex-column">
+                <h1 class="break-word f3 text-normal mb-md-0 mb-1">
+                  <span class="author">
+                    <a href="http://localhost:1313/">Andreas</a>
+                  </span>
+                  <span class="path-divider">/</span>
+                  <strong class="css-truncate css-truncate-target mr-1" style="max-width: 410px">
+                    <a href="http://localhost:1313/post/ff-synergy-projectplan/">Synergy Project Plan, future factory 2023</a>
+                  </strong>
+                </h1>
+                <div class="note m-0">
+                  Created <relative-time datetime="Mon, 19 Feb 2024 00:00:00 &#43;0000"
+                    class="no-wrap">
+                    Mon, 19 Feb 2024 00:00:00 &#43;0000</relative-time>
+
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-lg px-3 new-discussion-timeline">
+      <div class="repository-content gist-content">
+        <div>
+          <div class="js-gist-file-update-container js-task-list-container file-box">
+            <div id="file-pytest" class="file my-2">
+              <div id="post-header" class="file-header d-flex flex-md-items-center flex-items-start sticky-header" style="z-index: 2">
+                <div class="file-info d-flex flex-md-items-center flex-items-start flex-order-1 flex-auto">
+                  <div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1 mt-2 mt-md-0">
+                    
+                    <summary id="toc-toggle" onclick="clickToc()" class="btn btn-octicon m-0 mr-2 p-2">
+                      <svg aria-hidden="true" viewBox="0 0 16 16" height="16" width="16" class="octicon octicon-list-unordered">
+                        <path fill-rule="evenodd" d="M2 4a1 1 0 100-2 1 1 0 000 2zm3.75-1.5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zM3 8a1 1 0 11-2 0 1 1 0 012 0zm-1 6a1 1 0 100-2 1 1 0 000 2z"></path>
+                      </svg>
+                    </summary>
+                    <details-menu class="SelectMenu" id="toc-details" style="display: none;">
+                      <div class="SelectMenu-modal rounded-3 mt-1" style="max-height: 340px;">
+                        <div class="SelectMenu-list SelectMenu-list--borderless p-2" style="overscroll-behavior: contain;" id="toc-list">
+                        </div>
+                      </div>
+                    </details-menu>
+                      7130 Words
+                    
+
+                  </div>
+                  <div class="file-actions flex-order-2 pt-0">
+                    
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="Box-body px-5 pb-5" style="z-index: 1">
+                <article class="markdown-body entry-content container-lg"><h1 id="project-plan---synergy---tukko-v11">Project plan - Synergy - Tukko v1.1</h1>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center"></th>
+          <th style="text-align: center"></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">Document</td>
+          <td style="text-align: center">Project Plan</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Author:</td>
+          <td style="text-align: center">Andreas Kjersheim</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Version:</td>
+          <td style="text-align: center">1.3</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Date:</td>
+          <td style="text-align: center">19.02.2024</td>
+      </tr>
+  </tbody>
+</table>
+<p><img src="https://openclipart.org/image/400px/167242"></img></p>
+<h2 id="1-assignment">1 Assignment</h2>
+<h3 id="11-background-and-starting-points">1.1 Background and Starting Points</h3>
+<p><em>The assignment at hand is part of the OPF framework, specifically within the scope of the TTOS2070 Guideline at the Jyväskylä University of Applied Sciences. The overarching goal of this project is to develop and enhance existing components, known as &ldquo;objects,&rdquo; as a broader effort within the OPF framework.</em></p>
+<p>This project lead by the development team named &ldquo;Synergy&rdquo;. We are consisting of dedicated individuals with diverse roles and skillsets. This interdisciplinary team aims to collaborate effectively to achieve the project&rsquo;s objectives.</p>
+<p>Synergy is comprised of the following key roles:
+<strong>Removing names for privacy, but keeping the roles to show the team.</strong></p>
+<p><strong>Team Leader:</strong> Andreas Kjersheim</p>
+<p><strong>Operations Lead:</strong></p>
+<p><strong>General, Assisting in Coordination and Administration:</strong></p>
+<p><strong>Security Lead, Manager Administrations:</strong></p>
+<p><strong>Tester Lead:</strong></p>
+<p><strong>Development Lead:</strong></p>
+<p>The project&rsquo;s focal point is the collaboration with the customer, customer . Under the guidance of Scrum Masters from the customer company  initially assigned the project &ldquo;Tukko&rdquo; to Team IoTitude in WIMMA Lab 2023. This project marks the continuation of collaboration between the customer company and JAMK University of Applied Sciences, resulting in a new assignment for future Tukko implementations.</p>
+<p>The primary goal of the project is to evolve &ldquo;Tukko,&rdquo; specifically targeting the creation of &ldquo;Tukko v1.1.&rdquo; Tukko serves as a traffic visualizer web application, built as a framework comprising modules utilizing various technologies including React, MongoDB, TypeScript, Redis, Express.js, Node.js, REST API, and VITE. Its primary function is to streamline and enhance data from the digitraffic API, unifying scattered information into a more user-friendly interface. The tool also collects and stores long-term data for anomaly detection.</p>
+<p>Development for Tukko follows industry best practices with a strict adherence to Typescript and ESLint rulesets. Despite being a complete product, there are numerous unexplored ideas due to project time constraints.</p>
+<p>The project&rsquo;s methodologies include Agile principles, with Scrum as the chosen framework. Tools such as Gitlab and the OPF-framework serve as the backbone for all project documentation.</p>
+<p>The project also encompasses educational elements, ensuring that team members possess the necessary skills and knowledge for their roles, including familiarity with Git, Linux basics, project management concepts, requirements definition, Agile development principles, programming languages like Python and JavaScript, and networking fundamentals.</p>
+<p>Furthermore, the project outlines specific milestones and deliverables, with defined criteria for Gate reviews to ensure project progress and quality. This assignment not only involves software development but also emphasizes effective documentation, customer communication, and testing.</p>
+<p>To facilitate project management and tracking, the project adheres to a structured sprint-based schedule, divided into 8 sprints from Sprint00 to Sprint07, each lasting 2 weeks. As a student project, the main course have certain phases from Phase0 to Phase3, each with its distinct objectives and tasks. As major Milestones in our schedule, we are using gates throughout our development, ranging from GATE0 to GATE4. The ultimate aim is continuous improvement and the successful development of Tukko v1.1, aligning with the goals of customer Finland&rsquo;s assignment.</p>
+<p>Please refer to the subsequent sections for a comprehensive breakdown of the project&rsquo;s details, goals, and timelines.</p>
+<h3 id="12-goals-and-tasks">1.2 Goals and Tasks</h3>
+<p>This section provides an in-depth understanding of the goals and tasks set for the &ldquo;Synergy - FF2024&rdquo; project, encompassing its background, objectives, resources, organization, and vision.</p>
+<h3 id="121-background">1.2.1 Background</h3>
+<p>The project centers around the enhancement and evolution of the existing &ldquo;Tukko&rdquo; traffic visualizer web application. This initiative stems from customer Finland&rsquo;s initial assignment in WIMMA Lab 2023, where Team IoTitude developed Tukko v1.0. Building upon this foundation, our team, Synergy, is tasked with creating &ldquo;Tukko v1.1.&rdquo;</p>
+<h3 id="122-objectives">1.2.2 Objectives</h3>
+<p>The primary objective is to create Tukko v1.1, a comprehensive and improved version of the traffic visualizer web application. This new iteration aims to excel in various aspects, including:</p>
+<p><ins>User Interface and Accessibility (Epic 01):</ins> Enhance the user interface for improved accessibility and usability.</p>
+<p><ins>Data Analysis and Export (Epic 02):</ins> Improve data analysis capabilities and data export features.</p>
+<p><ins>Nordic Scalability (Epic 03):</ins> Ensure the application&rsquo;s scalability to cater to a broader Nordic audience.</p>
+<p><ins>Security and Authentication (Epic 04):</ins> Strengthen security measures and user authentication.</p>
+<p><ins>Infrastructure and Performance (Epic 05):</ins> Optimize the infrastructure for superior performance.</p>
+<p>The project closely aligns with customer Finland&rsquo;s assignment, and our team will assess our skillset and time constraints to create an offer detailing the features we can incorporate into Tukko v1.1, working towards their vision for future implementations.</p>
+<h3 id="123-tasks">1.2.3 Tasks</h3>
+<p>The project&rsquo;s tasks are organized into a series of sprints, each marked with specific GATEs (0-4), that serve as milestones and checkpoints to ensure project progress. While a detailed schedule overview will follow, the key tasks within these sprints encompass:</p>
+<ul>
+<li>
+<p><strong>Sprint 00:</strong> Initiating the project, team formation, and providing an introductory overview (GATE 0).</p>
+</li>
+<li>
+<p><strong>Sprint 01:</strong> Developing a comprehensive project plan, designing enhancements for Tukko v1.1, specifying requirements, and preparing an offer for the customer.</p>
+</li>
+<li>
+<p><strong>Sprint 02:</strong> Focusing on planning activities, including Project Planning, Planning Design, Requirement Specification, Offer &amp; Contract, Communication Plan, and Risk Management Plan. While no implementations are done during this sprint, we are focusing on planning out a prototype with select features to accompany our offer (GATE 1).</p>
+</li>
+<li>
+<p><strong>Sprint 03:</strong> Continuing planning and documentation preparation, in preparation for Sprint  04 and the continuing development. This sprint is somewhat affected by general holidays in Finland from 26.02-01.03.</p>
+</li>
+<li>
+<p><strong>Sprint 04:</strong> Continuation of the execution phase, with a strong emphasis on Design, Implementation, and Testing of planned features. A status check takes place at the midpoint of this sprint (GATE 2).</p>
+</li>
+<li>
+<p><strong>Sprint 05:</strong> Continuing feature implementation and testing.</p>
+</li>
+<li>
+<p><strong>Sprint 06:</strong> Continued focusing on testing, bug fixing, release preparations. The midpoint marks another highlight(GATE 3), known as Demo Day. Initiating project documentation for final delivery.</p>
+</li>
+<li>
+<p><strong>Sprint 07:</strong> The final sprint, preparing for project completion, including the Release(GATE 4). Primarily dedicated to wrapping up any pending tasks and operations.</p>
+</li>
+</ul>
+<p>The end of Sprint 07 marks the due date for project documentation and associated course modules.</p>
+<h3 id="124-resources-and-organization">1.2.4 Resources and Organization</h3>
+<p>The project operates with a dedicated team, Synergy, consisting of individuals holding distinct roles and responsibilities. These roles include Team Leader, Operations Lead, General Coordinator, Security Lead, Tester Lead, and Development Lead. The team collaborates efficiently to meet project objectives and deliverables.</p>
+<p>In addition to the core team, the project benefits from the oversight from the course Scrum Master, and the Product Owner. PO relays guidance from Scrum Masters the customer company. These Scrum Masters serve as key stakeholders, providing valuable insights and ensuring alignment with the customers needs.</p>
+<h3 id="125-vision-of-future-state">1.2.5 Vision of Future State</h3>
+<p>The project envisions a future state where &ldquo;Tukko v1.1&rdquo; stands as an advanced and feature-rich traffic visualizer web application. In this state, Tukko offers enhanced user experiences, improved data analysis capabilities, increased scalability, robust security measures, and optimal infrastructure performance. The application will be well-documented, thoroughly tested, and ready for deployment.</p>
+<p>Intermediate results within each sprint and GATE contribute to the realization of this vision, with continuous improvements and milestones guiding the project towards its ultimate goal.</p>
+<p>In summary, the &ldquo;Synergy - FF2024&rdquo; project is driven by clear objectives, structured tasks within sprints and GATEs, and a vision for an enhanced Tukko v1.1 that aligns with Customer&rsquo;s assignment.</p>
+<h3 id="13-limitations-and-interfaces">1.3 Limitations and interfaces</h3>
+<p>In our project, limitations and interfaces refer to the boundaries and connections between our work and external components or systems. As we develop Tukko v1.1 within the framework provided by customer, we must adhere to the specifications and requirements set forth by them. Our task is to enhance and extend the existing Tukko system without disrupting its interoperability with other systems or components. This involves careful consideration of interface protocols, data exchange formats, and compatibility with third-party integrations. While we aim to push the boundaries of Tukko&rsquo;s functionality, we must also respect its existing limitations and ensure seamless integration with external systems.</p>
+<h3 id="14-rights-and-ipr">1.4 Rights and IPR</h3>
+<p>Rights and Intellectual Property Rights (IPR) pertaining to our project are governed by the project agreement with customer. As the owner of Tukko v1.0 and the client for Tukko v1.1 development, customer holds the rights to the product and its associated intellectual property. Our team operates under the terms outlined in the project agreement, which delineates the rights and responsibilities of all parties involved. Additionally, European and Finnish regulations regarding intellectual property rights provide a legal framework for protecting our work and ensuring fair distribution of rights among stakeholders. CSC, a Finnish company partnering with our educational institution, provides development and testing services, contributing to the creation and refinement of Tukko v1.1.</p>
+<h3 id="15-terms-and-definitions">1.5 terms and definitions</h3>
+<p>This section of our project plan provides definitions, terms, and abbreviations relevant to our project. It ensures clarity and consistency in communication by establishing a common understanding of key concepts. For instance, &ldquo;inspection&rdquo; and &ldquo;reviewing&rdquo; may have distinct meanings in different contexts, so we define these terms within the scope of our project. Additionally, we establish abbreviations, providing their original language equivalents and brief descriptions in Finnish. For example, &ldquo;Case&rdquo; may refer to &ldquo;Computer Aided Software Engineering&rdquo; (Tietokoneavusteinen ohjelmistosuunnittelu) or &ldquo;Computer Assisted System Work&rdquo; (Tietokoneavusteinen järjestelmätyö), depending on the context. These definitions and abbreviations help mitigate misunderstandings and facilitate effective communication within our team and with external stakeholders.</p>
+<h3 id="16-swot-analysis---challenges-and-opportunities-related-to-the-project">1.6 SWOT Analysis - Challenges and Opportunities related to the project</h3>
+<p>This general SWOT analysis provides an initial overview of the project&rsquo;s internal and external factors. As we proceed with our project, we will create more specific SWOT analyses for each gate to address the evolving circumstances and make informed decisions at critical milestones.</p>
+<img src="/images/synergy-project-plan/SWOT_ProjectPlan.png" alt="SWOT Analysis Pre G1" style="width: 600px; height: auto;">
+<h4 id="strengths">Strengths:</h4>
+<p><ins>Good Team Dynamics and Strong Communication:</ins> The team&rsquo;s cohesion and effective communication enhance collaboration and problem-solving, fostering a positive working environment.</p>
+<p><ins>Documentation:</ins> The team&rsquo;s commitment to documenting project activities ensures transparency, knowledge sharing, and easy reference, contributing to efficient project management.</p>
+<p><ins>Diverse Skillsets and Interests:</ins> The team&rsquo;s diverse backgrounds and skillsets bring a range of perspectives and expertise to the project, enriching the development process and promoting innovation.</p>
+<p><ins>Focus on Cyber Security and UI/UX:</ins> Leveraging expertise in cyber security and user interface/user experience (UI/UX) design enhances the project&rsquo;s quality, security, and usability, aligning with industry best practices.</p>
+<p><ins>Equal Experience and Eagerness to Learn:</ins> The team&rsquo;s balanced experience levels and willingness to explore new approaches facilitate skill development, adaptability, and continuous improvement.</p>
+<p><ins>Effective Coordination:</ins> The team dynamic so far shows clarity of vision, direction, and motivation, guiding the team towards achieving project goals.</p>
+<p><ins>Access to Resources:</ins> The team has access to necessary resources such as tools, technologies, and support from mentors or coaches, enabling efficient execution of project tasks.</p>
+<h4 id="weaknesses">Weaknesses:</h4>
+<p><ins>Productivity Challenges:</ins> Some team members may face difficulties in maintaining productivity due to personal challenges or external factors, potentially impacting project progress and timelines.</p>
+<p><ins>Time Constraints:</ins> Time limitations may restrict the team&rsquo;s capacity to fully execute project tasks, leading to potential delays or compromises in deliverables.</p>
+<p><ins>Limited Expertise in Certain Areas:</ins> The team&rsquo;s lack of prior experience or expertise in specific domains could present challenges during development, requiring additional resources or training to overcome.</p>
+<p><ins>Dependency on Individual Contributions:</ins> The project may be vulnerable to delays or disruptions if key tasks rely heavily on individual team members, lacking redundancy or backup plans.</p>
+<p><ins>Scope Creep:</ins> &ldquo;What once started as a single deliverable becomes five&rdquo;. Inadequate scope management or changing requirements may result in scope creep, leading to project inefficiencies and resource overruns.</p>
+<h4 id="opportunities">Opportunities:</h4>
+<p><ins>Tukko v1.0 as a Basepoint:</ins> Leveraging Tukko v1.0 as a foundation provides an opportunity to build upon existing features, address user feedback, and enhance functionality, ultimately delivering a more robust and user-friendly product.
+<ins>Market Expansion:</ins> The project presents an opportunity to expand into new markets or target additional user segments, increasing the project&rsquo;s reach and potential for growth.</p>
+<p><ins>Partnership Collaborations:</ins> Collaborating with strategic partners or stakeholders can provide access to additional resources, expertise, or market insights, enhancing the project&rsquo;s capabilities and competitive advantage.</p>
+<p><ins>Emerging Technologies:</ins> Exploring emerging technologies such as artificial intelligence or blockchain presents opportunities to innovate and differentiate the project, staying ahead of industry trends and meeting evolving user needs.</p>
+<h4 id="threats">Threats:</h4>
+<p><ins>Technological Advancements:</ins> Rapid advancements in technology may pose a threat by introducing new standards, tools, or methodologies that the team must adapt to, potentially requiring additional time and resources for learning and implementation.</p>
+<p><ins>Competitive Landscape:</ins> The presence of competitors in the market could pose a threat by offering similar solutions or capturing target users, requiring the team to differentiate its product and continuously innovate to maintain a competitive edge.</p>
+<p><ins>Resource Constraints:</ins> Limited availability of resources such as funding, manpower, or infrastructure may constrain project execution, hindering progress and limiting the team&rsquo;s ability to meet project objectives.</p>
+<p><ins>Regulatory Compliance:</ins> Evolving regulatory requirements or compliance standards may introduce complexities or constraints that impact project development and deployment, necessitating thorough planning and adherence to legal frameworks.</p>
+<h2 id="2-project-organization">2 Project organization</h2>
+<p>The following sections describes the teams and division of these within the project, both for Synergy and educational personall via JAMK, the project customer customer and services such as CSC.</p>
+<h3 id="21-organization">2.1 Organization</h3>
+<h3 id="project-team">Project Team</h3>
+<p>The project team consists of dedicated professionals from JAMK University of Applied Sciences, responsible for the development and planning of the project. They are supported by mentors from JAMK who provide guidance on technical challenges and ideation.</p>
+<h4 id="team-members">Team Members:</h4>
+<table>
+  <thead>
+      <tr>
+          <th>Team Members</th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Andreas Kjersheim</td>
+          <td>Project Manager and Team Lead</td>
+      </tr>
+      <tr>
+          <td>xxx</td>
+          <td>Security Lead and Service Administrator</td>
+      </tr>
+      <tr>
+          <td>xxx</td>
+          <td>General Tasks Lead and Service Administrator</td>
+      </tr>
+      <tr>
+          <td>xxx</td>
+          <td>Development Lead</td>
+      </tr>
+      <tr>
+          <td>xxx</td>
+          <td>Test Manager</td>
+      </tr>
+      <tr>
+          <td>xxx</td>
+          <td>Operations Lead</td>
+      </tr>
+  </tbody>
+</table>
+<p>Throughout the project, the role of Secretary within the group will rotate among team members, based on the needs of each sprint and the project&rsquo;s budget constraints. The rotation ensures effective administrative support while optimizing costs and managing other project tasks.</p>
+<p>For detailed information regarding the roles and competencies of individual team members, please refer to the team introduction documentation.</p>
+<p><ins>Preliminary meeting schedule:</ins> The project group convenes for Daily Scrum every working day in the project, typically on Mondays and Fridays 09-09.15. Chaired by the team lead Andreas Kjersheim, these meetings set, facilitate prioritizations, and ensure alignment with project goals. Relevant materials are shared with the group in advance to facilitate informed decision-making and effective collaboration.</p>
+<h3 id="structure-of-project-organization-in-mindmap-form"><strong>Structure of Project Organization in MindMap form</strong></h3>
+<pre tabindex="0"><code class="language-plantuml" data-lang="plantuml">@startmindmap
+!theme aws-orange
++ Tukko v1.1
+++ Synergy
++++ Synergy Representatives
+++++ Andreas Kjersheim(Project Manager)
+++++ Security Lead and Service Administrator
++++ Development Team
+++++ Development Lead
+++++ Operations Lead
+++++ General Tasks &amp; Service Administrator
++++ Quality assurance
+++++ Test Manager
++++ Clan Mentors (JAMK Educational Affiliated)
++++ JAMK Scrum Master
+-- Product Owner
+-- Customer Company
+--- Scrum Master
+--- Scrum Master
+-- CSC Services
+--- Helpdesk CSC
+@endmindmap
+</code></pre><h3 id="22-responsibilities-and-decision-making-process">2.2 Responsibilities and Decision-Making Process</h3>
+<h4 id="management-team">Management Team</h4>
+<p>The Management Team constitutes a diverse ensemble of individuals, including representatives from JAMK University of Applied Sciences, instructors, and customer. This group may also include subject matter experts invited based on their expertise and contributions to the project. The composition of the Management Team is stipulated in the Project Contract.</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">Name</th>
+          <th style="text-align: center">Description</th>
+          <th style="text-align: center">Responsibilities</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">xxx</td>
+          <td style="text-align: center"><strong>Product Owner</strong></td>
+          <td style="text-align: center">Customer Liaison and Requirements</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">xxx</td>
+          <td style="text-align: center"><strong>Scrum Master</strong></td>
+          <td style="text-align: center">Project Management and Facilitation</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">xxx</td>
+          <td style="text-align: center"><strong>Educational Experts</strong></td>
+          <td style="text-align: center">Technical Guidance and Clan Support</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">xxx</td>
+          <td style="text-align: center"><strong>Client Liaison</strong></td>
+          <td style="text-align: center">Feedback and Requirements Gathering</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Andreas Kjersheim</td>
+          <td style="text-align: center"><strong>Project Manager</strong></td>
+          <td style="text-align: center">Project Management and Coordination</td>
+      </tr>
+  </tbody>
+</table>
+<p>The Management Team meets during initial sprints with the entire project team, tentatively on Mondays and Fridays.
+Subsequent meeting schedules are determined iteratively, ideally every couple of sprints.</p>
+<h4 id="mentors">Mentors:</h4>
+<ul>
+<li>Mentors from JAMK provide guidance and support to department leads within the project team, assisting with technical challenges and ideation.</li>
+</ul>
+<h4 id="communication">Communication:</h4>
+<ul>
+<li>Daily scrum meetings are held every working day from 09:00 to 09:15 for the project team.</li>
+<li>Team members communicate through channels defined in the Communication Plan.</li>
+</ul>
+<h4 id="customer-representatives">customer Representatives</h4>
+<ul>
+<li><strong>customer - Client Liaison:</strong> * <strong>Role:</strong> customer, represented by designated individuals, serves as the client liaison, providing feedback and requirements to the project team. They collaborate closely with the Product Owner, to ensure alignment with customer expectations and project objectives.</li>
+</ul>
+<p><ins>Preliminary meeting schedule:</ins> The initial meeting of the Management Team is during first sprints, tentatively on Mondays and Fridays in informational meetings with several teams. Subsequent meeting schedules will be determined iteratively, ideally every couple 2 sprints. Andreas Kjersheim assumes the role of Secretary for these meetings, responsible for recording minutes and memos to ensure accurate documentation when needed.</p>
+<p>Invitations and meeting materials will be disseminated by Andreas Kjersheim or project members responsible for given challenges, ensuring timely communication and preparation. Any specific requirements or preferences regarding meetings will be addressed during the initial meeting, ensuring alignment with the team&rsquo;s needs and expectations.</p>
+<h4 id="support-group">Support Group</h4>
+<p>The Support Group plays an important role in offering guidance and resources to the project team, ensuring they have the necessary support to fulfill their responsibilities effectively. This group comprises various stakeholders, including:</p>
+<p><ins>Project Scrum Master - Higher Decisions Support</ins></p>
+<pre><code>Role: The Scrum Master and provides support for higher-level decisions within the project. He facilitates communication between the project team and management, ensuring alignment with project goals and objectives.
+</code></pre>
+<p><ins>Product Owner - Customer Contact Support</ins></p>
+<pre><code>Role: The Product Owner serves as the primary point of contact for customer interactions. He gathers feedback and requirements from customer and ensures that they are incorporated into the project's development process.
+</code></pre>
+<p><ins>Discord Clans (JAMK Partners)</ins></p>
+<pre><code>Discord clans serve as a collective of experts from various departments and JAMK partners, offering assistance and expertise to department leads and team members. Mentors from JAMK and other educational institutions are also part of these clans, providing guidance and support on technical challenges and ideation.
+</code></pre>
+<h3 id="23-project-steps-and-financial-objectives">2.3 Project Steps and Financial Objectives</h3>
+<p>In this section, we outline the iterative nature of the Tukko v1.1 project within an Agile software development framework and present the preliminary cost estimation and feature pricing.</p>
+<h4 id="total-project-preliminary-cost-estimation">Total Project Preliminary Cost Estimation:</h4>
+<p>Please refer to the Total Project Preliminary Cost Estimation overview for detailed information on resource allocation and cost breakdown.</p>
+<p><img src="/images/synergy-project-plan/Tukkov1_1_PrelimCostEstimate.png" title="Synergy Tukko v1.1 Project Cost Estimation" alt="Synergy Tukko v1.1 Project Cost Estimation"></img></p>
+<h4 id="feature-pricing---tukko-v11">Feature Pricing - Tukko v1.1:</h4>
+<p>Please refer to the Feature Pricing - Tukko v1.1 overview for detailed information on feature prioritization and estimated costs.</p>
+<p><img src="/images/synergy-project-plan/FeaturePricingSynergy.jpg" title="Synergy Tukko v1.1 Feature Pricing Estimation" alt="Synergy Tukko v1.1 Feature Pricing Estimation"></img></p>
+<p>The total project preliminary cost estimation provides an overview of the budget required for Agile project management, development efforts, testing, documentation, and other essential activities. It allows for adaptability throughout the project as priorities may shift between sprints based on customer feedback and changing requirements.</p>
+<p>The feature pricing outlines the estimated costs for delivering specific features within each sprint. These estimates are subject to change as the project progresses and new insights are gained.</p>
+<h4 id="future-factory-team-hours">Future Factory Team Hours</h4>
+<p>A brief overview over the teams planned activity, planning and familiarization before project initiation included:</p>
+<p><img src="/images/synergy-project-plan/HoursOverviewSynergy.jpg" title="Synergy Activity" alt="Synergy Activity"></img></p>
+<h4 id="agile-iterative-process">Agile Iterative Process</h4>
+<p>The project will follow an Agile iterative process, characterized by continuous development cycles known as sprints. Each sprint will focus on delivering specific features and functionalities based on priority and customer feedback.</p>
+<h4 id="task-iterations-and-planning">Task Iterations and Planning</h4>
+<p>Tasks will be organized into iterations, with each iteration lasting one or more sprints. During the planning phase of each iteration, the team will prioritize features from the backlog based on customer requirements and project goals.</p>
+<h4 id="resource-allocation-and-budgeting">Resource Allocation and Budgeting</h4>
+<p>Resource allocation will be flexible, with team members assigned to tasks based on their availability and expertise. The preliminary cost estimation accounts for various resources, including project management, development, testing, documentation, and other associated costs.
+Agile Financial Objectives</p>
+<h3 id="24-quality-verification-for-tukko-v11-project">2.4 Quality Verification for Tukko v1.1 Project</h3>
+<p>Following is an outline to ensure the high quality and reliability of the software application. The encompasses various aspects, including methods, standards, approval procedures, change management, documentation, reviews, risk management, and other complementary plans.</p>
+<h4 id="methods-and-standards">Methods and Standards:</h4>
+<p>The quality verification process for Tukko v1.1 includes rigorous testing procedures, code reviews, and user acceptance testing (UAT) to validate the functionality and usability of the application. Industry best practices and organizational quality standards, such as ISO 9001, serve as benchmarks for quality assurance activities.</p>
+<h4 id="approval-procedures-and-change-management">Approval Procedures and Change Management:</h4>
+<p>In the context of our project using GitLab, quality verification is a crucial aspect ensuring the reliability and effectiveness of Tukko v1.1. Our approach entail various elements tailored to our development environment and team structure.</p>
+<p><ins>Methods and Standards:</ins> Our methods include thorough testing procedures, giving active feedback and peer-programming, code reviews, and user acceptance testing (UAT) to validate functionality and usability.</p>
+<p><ins>Documentation and Reviews:</ins> Comprehensive documentation is maintained throughout the project, including requirements documents, test plans, and quality assurance reports. Regular reviews assess the quality of project artifacts, ensuring adherence to coding standards and completeness of documentation.</p>
+<p><ins>Risk Management:</ins> This is integrated into our quality verification process. We identify, assess, and mitigate risks that may affect the quality of Tukko v1.1, ensuring proactive risk mitigation strategies are in place. A risk management plan is in place to identify, assess, and mitigate potential risks throughout the project lifecycle.</p>
+<p>Link to the Risk Management Plan</p>
+<p><ins>GitLab Workflow:</ins> We leverage GitLab&rsquo;s capabilities for version control and collaboration. Team members work locally with cloned repos or directly in the web IDE. Each issue on the sprint board has a minimum of two assignees, ensuring accountability and collaboration. Similarly, each feature has 2-3 team members in a sub-project group during implementation and testing.</p>
+<p><ins> Definition of Done and Acceptance Criteria:</ins> We have established a clear definition of done, outlining the criteria that must be met for a task or feature to be considered complete. Acceptance criteria will be defined for each feature, providing clear guidelines for testing and validation. These will also be outlined in the Master Test Plan.</p>
+<p>Link to Master Test Plan</p>
+<p><ins>Continuous Integration and Testing:</ins> We utilize GitLab&rsquo;s CI/CD pipelines to automate build, test, and deployment processes. Automated tests are integrated into the pipeline to validate changes and ensure consistent quality throughout development.</p>
+<p><ins>Sprint Retrospectives and Continuous Improvement:</ins> At the end of each sprint, we conduct retrospectives to reflect on our processes and identify areas for improvement. Feedback from retrospectives informs adjustments to our quality verification practices, enabling continuous improvement over time.</p>
+<h3 id="25communication-and-tracking-of-project-progress">2.5.Communication and tracking of project progress</h3>
+<p>Effective communication and robust tracking of project progress are integral to the successful development and deployment of Tukko v1.1. This section outlines the methods, channels, and practices employed to facilitate transparent communication among team members and stakeholders, as well as the mechanisms for monitoring project advancement.</p>
+<p><strong>Workspaces and Communications</strong></p>
+<p>GitLab: The primary platform for project management, code collaboration, and documentation. Team members utilize GitLab&rsquo;s issue boards, merge requests, and wiki functionalities to coordinate tasks and share updates.
+Discord: A real-time messaging platform used for informal communication, quick queries, and team collaboration. Channels are organized to streamline discussions related to specific project aspects.
+Teams: Video conferencing tool utilized for virtual meetings, sprint reviews, and collaboration sessions. Scheduled meetings provide opportunities for in-depth discussions and progress updates, as well as preliminary notes and in-team documentation for group dynamic purposes.
+GitLab Wiki: A centralized repository for project documentation, including requirements, design specifications, and user manuals. Regular updates ensure that information remains accurate and accessible to all team members.</p>
+<p><strong>Packaging Policy and Connection</strong></p>
+<p>Information regarding project updates, feature implementations, and bug fixes is packaged into concise release notes and shared with stakeholders via GitLab&rsquo;s release feature.
+Regular email updates are sent to stakeholders, including Synergy, customer, and JAMK, to provide high-level summaries of project progress, upcoming milestones, and areas requiring attention or input.</p>
+<p><strong>Reporting and Information</strong></p>
+<p>Weekly progress reports are generated and shared with stakeholders to provide insights into sprint accomplishments, challenges encountered, and planned activities for the upcoming week.
+Biweekly sprint reviews are conducted with stakeholders to demonstrate completed features, gather feedback, and prioritize tasks for subsequent sprints.
+Ad-hoc meetings and discussions are facilitated as needed to address urgent issues, clarify requirements, and resolve blockers.</p>
+<p><strong>Project Folder</strong></p>
+<p>A dedicated folder within Teams houses all in-team project-related documentation, including meeting minutes, sprint plans, test cases, and design artifacts.
+Access permissions are managed to ensure that team members have appropriate access levels to view, edit, and contribute to project documents.</p>
+<p>The communication and tracking practices outlined in this section aim to foster collaboration, transparency, and alignment among team members and stakeholders throughout the Tukko v1.1 project lifecycle.</p>
+<h3 id="26the-end-of-the-project">2.6.The end of the project</h3>
+<p>As the Tukko v1.1 project nears its conclusion, several critical activities are undertaken to ensure a smooth transition from development to deployment, maintenance, and project closure.</p>
+<p><strong>Delivery</strong></p>
+<p>Upon the completion of development and testing phases, the final deliverables of Tukko v1.1, including the source code, documentation, and any associated assets, are packaged and prepared for delivery to the client, customer. The delivery process is meticulously executed to ensure the integrity and completeness of the project materials.
+Commissioning</p>
+<p>Following the delivery of project materials, the commissioning phase commences, wherein Tukko v1.1 is formally handed over to customer for deployment and integration into their existing infrastructure. This phase involves the installation, configuration, and validation of the application to ensure its functionality and compatibility with customer&rsquo;s systems.</p>
+<p><strong>Maintenance</strong></p>
+<p>Post-deployment, the maintenance phase begins, during which the Synergy team continues to provide support, address any issues or bugs identified in the production environment, and implement minor enhancements or updates as required. Maintenance activities are conducted in accordance with the agreed-upon service level agreements (SLAs) to uphold the performance and reliability of the application.</p>
+<p><strong>Taxation of Project Materials</strong></p>
+<p>As part of the project closure process, any applicable taxation or financial obligations related to the project materials are addressed and fulfilled. This may involve accounting for expenses, taxes, or other financial considerations associated with the development and delivery of Tukko v1.1.</p>
+<p><strong>Filing</strong></p>
+<p>All project-related documentation, including contracts, agreements, invoices, and correspondence, is meticulously organized and archived for future reference and auditing purposes. Proper filing ensures transparency, compliance, and accountability throughout the project lifecycle.</p>
+<p><strong>Final Report</strong></p>
+<p>A comprehensive final report summarizing the Tukko v1.1 project&rsquo;s objectives, accomplishments, challenges, lessons learned, and recommendations is compiled and submitted to the project stakeholders, including customer, JAMK, and Future Factory. The final report provides valuable insights into the project&rsquo;s outcomes and serves as a reference for future endeavors.</p>
+<p><strong>Project Official Decision</strong></p>
+<p>With the completion of all project activities and deliverables, a formal project official decision is made to formally close the Tukko v1.1 project. This decision acknowledges the successful fulfillment of project objectives, confirms the acceptance of deliverables by the client, and officially concludes the project engagement.</p>
+<p>The end of the project marks the culmination of months of collaborative effort, innovation, and dedication, with Tukko v1.1 poised to make a meaningful impact in enhancing traffic visualization and management capabilities.</p>
+<h2 id="3-projects-temporal-gates">3. Project&rsquo;s temporal Gates</h2>
+<h3 id="31-partitioning-and-phase">3.1 Partitioning and Phase</h3>
+<p><strong>Project Schedule by Gates, Sprints &amp; Phase-descriptions</strong></p>
+<pre tabindex="0"><code class="language-plantuml" data-lang="plantuml">@startgantt
+&lt;style&gt;
+ganttDiagram {
+	task {
+		FontName Arial
+		FontColor black
+		FontSize 10
+		FontStyle bold
+		LineColor blue
+                Lineheight 10
+                Padding 5
+	}
+	timeline {
+	    BackgroundColor azure
+	}
+	closed {
+		FontColor grey
+	}
+}
+&lt;/style&gt;
+
+title Schedule Overview
+
+skinparam legendBackgroundColor #FFFFFF
+skinparam legendBorderColor #FFFFFF
+skinparam legendEntrySeparator #FFFFFF
+
+legend top left
+    |&lt;#FA8072&gt;  | Gate 0 - 4   |
+    |&lt;#00FF7F&gt;  | Phases   |
+    |&lt;#ADD8E6&gt;    | Sprints   |
+endlegend
+
+2024/01/23 is colored in salmon
+2024/02/23 is colored in salmon
+2024/03/18 is colored in salmon
+2024/04/12 is colored in salmon
+2024/04/22 is colored in salmon
+
+Project starts the 2024-01-15
+[Project active] Starts 2024-01-15 and ends 2024-05-03
+[Planning Design] starts at 2024-01-25 and ends 2024-02-23
+[Planning Design] is colored in springgreen
+[Design/Implementation/Testing] starts at 2024-02-23 and ends 2024-05-03
+[Design/Implementation/Testing] is colored in springgreen
+[Introduction] starts at 2024-01-15 and ends 2024-01-26 
+[Introduction] is colored in lightblue/lightgreen
+[Project Planning] Starts 2024-01-25 and ends at 2024/02/23
+[Project Planning] is colored in lightblue/lightgreen
+[Requirement Specification] Starts 2024-01-25 and ends at 2024/02/23
+[Requirement Specification] is colored in lightblue/lightgreen
+[Communication Plan] Starts 2024-01-25 and ends at 2024/02/23
+[Communication Plan] is colored in lightblue/lightgreen
+[Risk Management Plan] Starts 2024-01-25 and ends at 2024/02/23
+[Risk Management Plan] is colored in lightblue/lightgreen
+[Offer &amp; Contract] Starts 2024-01-25 and ends at 2024/02/23
+[Offer &amp; Contract] is colored in lightblue/lightgreen
+[Documentation] Starts 2024-02-23 and ends 2024-05-03
+[Documentation] is colored in springgreen
+[Testing/Fixing/Release] Starts 2024-04-08 and ends 2024-05-03
+[Testing/Fixing/Release] is colored in springgreen
+
+
+[Sprint00] Starts 2024-01-15 and ends 2024-01-26
+[G0] happens at 2024/01/23
+
+[Sprint01] Starts 2024-01-29 and ends 2024-02-09 
+
+[Sprint02] Starts 2024-02-12 and ends 2024-02-23
+[G1] happens at 2024/02/23
+
+[Sprint03] Starts 2024-02-26 and ends 2024-03-08
+
+[Sprint04] Starts 2024-03-11 and ends 2024-03-22
+[G2] happens at 2024/03/18
+
+[Sprint05] Starts 2024-03-25 and ends 2024-04-05
+
+[Sprint06] Starts 2024-04-08 and ends 2024-04-19
+[G3] happens at 2024/04/12
+
+[Sprint07] Starts 2024-04-22 and ends 2024-05-03
+[G4] happens at 2024/04/22
+
+@endgantt
+</code></pre><h3 id="32-links-to-sprint-tracker">3.2 Links to Sprint tracker</h3>
+<ul>
+<li>Backlog</li>
+<li>Sprint 00- GATE0</li>
+<li>Sprint 01</li>
+<li>Sprint 02 - GATE1</li>
+<li>Sprint 03</li>
+<li>Sprint 04 - GATE2</li>
+<li>Sprint 05</li>
+<li>Sprint 06 - GATE3</li>
+<li>Sprint 07 - GATE4</li>
+</ul>
+<h3 id="33-project-partition-and-life-cycle">3.3 Project Partition and Life Cycle</h3>
+<p>The project partition involves dividing the project into clear sub-assemblies, such as subprojects, phases, tasks, and milestones. This division aligns with the project&rsquo;s life cycle, which progresses through various stages characterized by the development of outcomes and the achievement of specific milestones.</p>
+<h4 id="project-life-cycle-phases">Project Life Cycle Phases</h4>
+<p>The project life cycle is structured into different phases, each aimed at producing specific deliverables and achieving predetermined objectives. These phases typically include:</p>
+<ol>
+<li>
+<p><strong>Establishment:</strong> This initial phase involves setting up the project, defining its scope, objectives, and stakeholders&rsquo; roles and responsibilities.</p>
+</li>
+<li>
+<p><strong>Pre-study:</strong> In this phase, preliminary research and analysis are conducted to gather information and assess the feasibility of the project.</p>
+</li>
+<li>
+<p><strong>Requirement Specification:</strong> Requirements are gathered and documented, outlining the functionalities and features expected from the project.</p>
+</li>
+<li>
+<p><strong>Planning Design:</strong> Detailed planning and design activities take place, defining the project&rsquo;s architecture, resources, and schedule.</p>
+</li>
+<li>
+<p><strong>Implementation:</strong> The project&rsquo;s solutions are developed and implemented according to the defined specifications and requirements.</p>
+</li>
+<li>
+<p><strong>Testing:</strong> Comprehensive testing is performed to validate the functionality, performance, and reliability of the project&rsquo;s deliverables.</p>
+</li>
+<li>
+<p><strong>Closing:</strong> This final phase involves wrapping up the project, documenting lessons learned, and transitioning deliverables to stakeholders.</p>
+</li>
+</ol>
+<p>The software development project follows an iterative and incremental approach, commonly known as agile methodology. This approach divides the project into sprints lasting 1-4 weeks, with each sprint focused on delivering a set of prioritized features or functionalities.</p>
+<h3 id="34-project-phase-details">3.4 Project Phase Details</h3>
+<p>Each phase of the project entails specific tasks, resource allocations, and outcomes. Here&rsquo;s a brief overview of the phases and their key activities:</p>
+<h4 id="planning-design-phase-january-25---february-23">Planning Design Phase (January 25 - February 23)</h4>
+<ul>
+<li>Define project scope, objectives, and deliverables</li>
+<li>Develop project plan, including schedules, budgets, and resource allocation</li>
+<li>Identify and assess project risks</li>
+<li>Establish communication and collaboration channels</li>
+<li>Create documentation templates and standards</li>
+</ul>
+<h4 id="designimplementationtesting-phase-february-23---may-3">Design/Implementation/Testing Phase (February 23 - May 3)</h4>
+<ul>
+<li>Design software architecture and components</li>
+<li>Implement software solutions according to specifications</li>
+<li>Conduct unit testing and integration testing</li>
+<li>Perform system testing and user acceptance testing</li>
+<li>Address bugs and issues identified during testing</li>
+<li>Document design decisions and implementation details</li>
+</ul>
+<h4 id="documentation-phase-february-23---may-3">Documentation Phase (February 23 - May 3)</h4>
+<ul>
+<li>Create user manuals, technical documentation, and training materials</li>
+<li>Compile project reports and status updates</li>
+<li>Organize project documentation for future reference</li>
+<li>Ensure compliance with regulatory requirements and standards</li>
+</ul>
+<h4 id="testingfixingrelease-phase-april-8---may-3">Testing/Fixing/Release Phase (April 8 - May 3)</h4>
+<ul>
+<li>Execute final testing procedures</li>
+<li>Fix any remaining bugs or issues</li>
+<li>Prepare for product release or deployment</li>
+<li>Conduct user training and support activities</li>
+<li>Evaluate project performance and collect feedback for future improvements</li>
+</ul>
+<p>The duration and workload of each phase are meticulously planned and monitored using a Gantt chart, which visualizes the project timeline, dependencies between tasks, and key milestones, such as gate reviews and management team meetings. This structured approach ensures the efficient execution of the project and the timely delivery of high-quality outcomes.</p>
+<h3 id="35-project-gates-and-activities">3.5 Project Gates and Activities</h3>
+<h4 id="sprints-and-gates-overview">Sprints and Gates Overview</h4>
+<p>The project is structured around a series of sprints, each aimed at achieving specific deliverables and milestones. Additionally, gate reviews are conducted at strategic points to assess project progress and ensure alignment with objectives.</p>
+<ol>
+<li>
+<p><strong>Sprint 00 - GATE 0</strong></p>
+<ul>
+<li>Duration: Jan 15, 2024–Jan 26, 2024</li>
+<li>Description: This sprint marked the project&rsquo;s kickoff, focusing on setting up the initial project environment, defining requirements, and establishing communication channels.</li>
+</ul>
+</li>
+<li>
+<p><strong>Sprint 01</strong></p>
+<ul>
+<li>Duration: Jan 29, 2024–Feb 9, 2024</li>
+<li>Description: Currently ongoing, this sprint focuses on initial development tasks and laying the groundwork for subsequent sprints.</li>
+</ul>
+</li>
+<li>
+<p><strong>Sprint 02 - GATE 1</strong></p>
+<ul>
+<li>Duration: Feb 12, 2024–Feb 23, 2024</li>
+<li>Description: This sprint concludes with Gate 1, where the project progress will be reviewed, and initial deliverables will be evaluated for quality and completeness.</li>
+</ul>
+</li>
+<li>
+<p><strong>Sprint 03</strong></p>
+<ul>
+<li>Duration: Feb 26, 2024–Mar 8, 2024</li>
+<li>Description: Following Gate 1, Sprint 03 focuses on implementing feedback from the review and progressing towards the next set of deliverables.</li>
+</ul>
+</li>
+<li>
+<p><strong>Sprint 04 - GATE 2</strong></p>
+<ul>
+<li>Duration: Mar 11, 2024–Mar 22, 2024</li>
+<li>Description: Gate 2 marks a significant milestone where the project undergoes another review to ensure alignment with requirements and project goals.</li>
+</ul>
+</li>
+<li>
+<p><strong>Sprint 05</strong></p>
+<ul>
+<li>Duration: Mar 25, 2024–Apr 5, 2024</li>
+<li>Description: Sprint 05 involves intensive development and testing efforts as the project moves closer to completion.</li>
+</ul>
+</li>
+<li>
+<p><strong>Sprint 06 - GATE 3</strong></p>
+<ul>
+<li>Duration: Apr 8, 2024–Apr 19, 2024</li>
+<li>Description: Gate 3 signifies the final stages of development, with an emphasis on resolving any outstanding issues and preparing for the project&rsquo;s final review.</li>
+</ul>
+</li>
+<li>
+<p><strong>Sprint 07 - GATE 4</strong></p>
+<ul>
+<li>Duration: Apr 22, 2024–May 3, 2024</li>
+<li>Description: The project culminates with Gate 4, where all deliverables are evaluated for acceptance, and final preparations are made for deployment or delivery.</li>
+</ul>
+</li>
+</ol>
+<p>These milestones, along with the associated sprints and gates, provide a structured framework for managing the project&rsquo;s progress and ensuring successful outcomes.</p>
+<h2 id="4-quality-assurance">4. Quality Assurance</h2>
+<p>In the Synergy Tukko v1.1, ensuring high-quality standards is paramount to achieving project success. Quality assurance (QA) practices are integrated into every phase of the project lifecycle, from planning and design to implementation and testing. Here&rsquo;s an overview of our approach to quality assurance:</p>
+<h3 id="definition-of-done-dod">Definition of Done (DoD)</h3>
+<p>Link to our Definition of Done documentation</p>
+<p>Our Definition of Done serves as a comprehensive checklist to ensure that all tasks and features are completed to the required standard before being considered done. Key components of our DoD include:</p>
+<ul>
+<li><strong>Pair Review</strong>: Every task or feature undergoes a thorough review process by at least two team members to ensure code quality and functionality meet our standards.</li>
+<li><strong>Testing</strong>: Rigorous testing is an integral part of our DoD, including unit testing, integration testing, and user acceptance testing, to guarantee that our work functions as intended.</li>
+<li><strong>Documentation</strong>: Comprehensive documentation is essential, including code documentation, processes, and user guides, to facilitate understanding and future reference.</li>
+<li><strong>Implementation in Version Control</strong>: All code changes and updates are integrated into our version control system, Gitlab, to maintain a clear history and track changes over time.</li>
+<li><strong>Together Reviewed</strong>: Collaborative teamwork is paramount, with all completed work reviewed and discussed together to foster communication and knowledge sharing among team members.</li>
+<li><strong>User Feedback</strong>: User feedback is collected and considered to continuously enhance our products and services.</li>
+</ul>
+<p>Our DoD ensures that we meet high-quality standards and align our work with Agile development principles. It serves as a valuable reference to avoid ambiguity regarding task completion.</p>
+<h3 id="testing-management">Testing Management</h3>
+<p>Name of testing lead our Testing Management efforts as the Testing Manager. While more detailed planning will be conducted, our team remains flexible to incorporate and prioritize QA considerations throughout the project lifecycle. The test leader and the testing team are committed to utilizing various testing methods, including automated testing, to ensure the quality and reliability of our deliverables.</p>
+<h3 id="tools-and-standards">Tools and Standards</h3>
+<p>We adhere to established methods, instruments, instructions, and standards applicable to the project, ensuring consistency and quality across all project activities. The team follows the client&rsquo;s specified methods and standards, tailoring them as necessary to meet project requirements. The use of project monitoring tools and reporting is essential, with requirements outlined to ensure effective project management and communication.</p>
+<p>By integrating quality assurance practices into our project processes and remaining attentive to QA considerations at every stage, we aim to deliver a high-quality solution that meets the project&rsquo;s goals and objectives.</p>
+<h3 id="41-approval-of-intermediate-and-results">4.1 Approval of Intermediate and Results</h3>
+<p>In the project the approval procedure for intermediate deliverables and final results is crucial to ensuring project alignment with stakeholder expectations and quality standards. The approval process involves the following steps:</p>
+<ul>
+<li>
+<p><strong>Review and Evaluation</strong>: Intermediate deliverables and final results are reviewed and evaluated by relevant stakeholders, including project team members, clients, and other key stakeholders.</p>
+</li>
+<li>
+<p><strong>Feedback Integration</strong>: Feedback and comments from stakeholders are collected and integrated into the deliverables as necessary, ensuring alignment with project requirements and objectives.</p>
+</li>
+<li>
+<p><strong>Approval Decision</strong>: The project manager, in consultation with stakeholders, makes the final decision regarding the approval of intermediate deliverables and final results based on established criteria and quality standards.</p>
+</li>
+<li>
+<p><strong>Documentation</strong>: Approved deliverables are documented and archived for future reference. This documentation includes details of the approval process, stakeholders involved, and any relevant comments or feedback received.</p>
+</li>
+</ul>
+<p>By following a structured approval procedure, we ensure that project deliverables meet quality standards and stakeholder expectations, ultimately contributing to project success.</p>
+<h3 id="42-manage-changes">4.2 Manage Changes</h3>
+<p>Effective change management is essential for adapting project practices and addressing changes related to project results. Our change management procedure includes the following steps:</p>
+<ul>
+<li>
+<p><strong>Change Identification</strong>: Changes to project practices or project results are identified and documented, ensuring clear communication and understanding of the proposed changes.</p>
+</li>
+<li>
+<p><strong>Impact Assessment</strong>: The impact of proposed changes is assessed, considering factors such as project timeline, budget, and stakeholder requirements.</p>
+</li>
+<li>
+<p><strong>Approval Process</strong>: Proposed changes are reviewed and approved by relevant stakeholders, including the project manager, client representatives, and other key project members.</p>
+</li>
+<li>
+<p><strong>Implementation</strong>: Approved changes are implemented according to the agreed-upon plan, ensuring minimal disruption to project activities and deliverables.</p>
+</li>
+<li>
+<p><strong>Documentation</strong>: All changes, including their rationale and impact, are documented and archived for future reference. This documentation ensures transparency and accountability in managing project changes.</p>
+</li>
+</ul>
+<p>By following a structured change management procedure, we can effectively adapt to evolving project requirements and ensure project success.</p>
+<h3 id="43-documentation">4.3 Documentation</h3>
+<p>Documentation plays a vital role in the Tukko v1.1 project, providing a reference point for project activities, decisions, and outcomes. Our documentation practices include the following:</p>
+<ul>
+<li>
+<p><strong>Document Storage and Archiving</strong>: Documents are stored and archived in designated repositories, such as GitLab, ensuring easy access and retrieval by project team members.</p>
+</li>
+<li>
+<p><strong>Sharing Mechanisms</strong>: Documents are shared using collaboration tools and platforms agreed upon by the project team, facilitating communication and collaboration among team members.</p>
+</li>
+<li>
+<p><strong>Responsibilities</strong>: Responsibilities for managing different types of documents are assigned to relevant project team members. For example, the project manager may oversee overall document management, while specific team members may be responsible for documenting specific project aspects.</p>
+</li>
+<li>
+<p><strong>Version Control</strong>: Version control mechanisms are implemented to track document revisions and ensure that the latest versions are readily available to project stakeholders.</p>
+</li>
+</ul>
+<p>By maintaining organized and accessible documentation, we ensure transparency, accountability, and effective communication throughout the project lifecycle.</p>
+<h3 id="44-risk-management">4.4 Risk management</h3>
+<p>This is integrated into our quality verification process. We identify, assess, and mitigate risks that may affect the quality of Tukko v1.1, ensuring proactive risk mitigation strategies are in place. A risk management plan is in place to identify, assess, and mitigate potential risks throughout the project lifecycle.</p>
+<ul>
+<li>Risk management plan</li>
+</ul>
+<h3 id="46-complementary-plans-for-the-project-plan">4.6 Complementary plans for the project plan</h3>
+<ul>
+<li>Requirement Specification</li>
+<li>Master Test Plan</li>
+<li>Communication Plan</li>
+<li>Risk management plan</li>
+<li>Definition of Done</li>
+<li>Definition of Done Template for features</li>
+</ul>
+<h3 id="47-plans-for-review-and-updating">4.7 Plans for review and updating</h3>
+<p>The project plan is a vital and dynamic part of the projects documentation. Dates are recorded in which the date of updating the plan at least must be checked, with current date and version added at the top of the document, while a history of the revised versions are found at the end. Due to project budget limitations, we do not have hosting space to host the older documents - so just the title, author, date and versions are stored. The changes can be found through the GitLab features.</p>
+<h3 id="48-project-suspension-criteria">4.8 Project Suspension Criteria</h3>
+<p>The Right Project Plan also includes the project&rsquo;s suspension criteria. However, these are not used in student projects because projects use a certain number of hours to make a result and the result will be released as it is at the end of the course.However, the project team makes a further development plan that a potential new project continues.</p>
+<h2 id="5-communication-and-tracking-of-project-progression">5. Communication and Tracking of Project Progression</h2>
+<p>Link to our Communication Plan</p>
+<h3 id="51-communication-plan">5.1 Communication Plan</h3>
+<p>The communication plan defines the methods and channels used for effective communication within the project. It ensures clear information passage and influences the quality objectives&rsquo; implementation.</p>
+<h3 id="general-communications-channels">General Communications Channels</h3>
+<ul>
+<li><strong>Discord</strong>: Primary communication tool for team members, mentors, and Future Factory coaches.</li>
+<li><strong>Teams</strong>: Used for video meetings within the team.</li>
+<li><strong>Zoom</strong>: Utilized by coaches and mentors for relaying information to Future Factory participants.</li>
+</ul>
+<h3 id="internal-communications">Internal Communications</h3>
+<ul>
+<li><strong>Daily Scrum</strong>: Held at 9 am on Mondays and Fridays for progress updates, idea sharing, and task planning.</li>
+<li><strong>Sprint Planning</strong>: Conducted at the start of each sprint to assess objectives and workload.</li>
+<li><strong>Sprint Review Fridays</strong>: At the end of each sprint, a review session will be held between the Scrum team and other key stakeholders to inspect the sprint outcome and determine future adaptations.</li>
+<li><strong>Retro Meeting</strong>: Held at the end of each sprint to reflect on progress, identify challenges, and plan for improvement.</li>
+</ul>
+<h3 id="communications-with-stakeholder-representatives">Communications with Stakeholder Representatives</h3>
+<ul>
+<li><strong>Product Owner</strong>: Facilitates communication between the team and customer representatives, invites key stakeholders to sprint reviews, and ensures issues meet the &ldquo;definition of done.&rdquo;</li>
+</ul>
+<h3 id="monitoring-and-evaluation-of-communications">Monitoring and Evaluation of Communications</h3>
+<ul>
+<li>Communication methods will be regularly reviewed to ensure effectiveness and efficiency.</li>
+<li>Iterative adjustments will be made based on feedback from the team and project status.</li>
+</ul>
+<h2 id="6-the-end-of-the-project">6. The end of the project</h2>
+<h3 id="61-delivery-of-the-end-product-introduction">6.1 Delivery of the end product, introduction</h3>
+<p>The final product, Tukko v1.1, will be documented comprehensively, detailing its features and functionalities. Additionally, if deemed necessary, an introduction session will be organized for the client, customer, to familiarize them with the application. Installation and deployment plans will be included as part of the delivery process.</p>
+<h3 id="62-taxation-of-the-project-produced-by-the-project-archiving-and-retention-period">6.2 Taxation of the project produced by the project, archiving and retention period</h3>
+<p>Project documentation will be stored in the designated X system, with consideration given to which documents can be passed on to future projects. Plans and the final report will be archived appropriately for reference.</p>
+<h3 id="63-official-termination-of-the-project">6.3 Official termination of the project</h3>
+<p>The project&rsquo;s termination will be determined by the completion of deliverables, contract expiration, or client acceptance. The goal date for deliverables is 26.04.2024. A joint closure seminar, including a traditional sauna event, will be organized to mark the project&rsquo;s end.</p>
+<h3 id="64-termination">6.4 Termination</h3>
+<p>A joint closure seminar will be held to formally conclude the project, with participants and timing recorded for documentation purposes. The seminar will be held in Tamminiemi, Helsinki, in a rather specical and historic Sauna and pool for participants that are interested in that.</p>
+<h2 id="65-project-final-report">6.5 Project Final Report</h2>
+<p>The project&rsquo;s final report will be prepared during the last management team meeting, summarizing objectives, accomplishments, and recommendations.</p>
+<h2 id="document-revision-history">Document revision history:</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Date</th>
+          <th>Author</th>
+          <th>Version</th>
+          <th>Changes</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>02.02.2024</td>
+          <td>Andreas Kjersheim</td>
+          <td>v1.0</td>
+          <td>Outlining the document with introduction secitons marked 1 and 2.</td>
+      </tr>
+      <tr>
+          <td>09.02.2024</td>
+          <td>Andreas Kjersheim</td>
+          <td>v1.1</td>
+          <td>Describing communication and team structure as well as project management</td>
+      </tr>
+      <tr>
+          <td>12.02.2024</td>
+          <td>Andreas Kjersheim</td>
+          <td>v1.2</td>
+          <td>Continuing on the plan with focus on rights &amp; ownership, SWOT analysis,</td>
+      </tr>
+      <tr>
+          <td>19.02.2024</td>
+          <td>Andreas Kjersheim</td>
+          <td>v1.3</td>
+          <td>Discussing deliverables and end of project, as well as updating missing sections describing communication &amp; tracking,quality assurance methods and end of project</td>
+      </tr>
+  </tbody>
+</table>
+</article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script type="application/javascript" src='http://localhost:1313/js/toc.js'></script>
+<link rel="stylesheet" href='http://localhost:1313/css/toc.css' />
+
+  
+</div>
+
+  <div class="footer container-xl width-full p-responsive">
+  <div
+    class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between flex-sm-items-center pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
+    <a aria-label="Homepage" title="GitHub" class="footer-octicon d-none d-lg-block mr-lg-4" href="http://localhost:1313/">
+      <svg height="24" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="24">
+        <path fill-rule="evenodd"
+          d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+        </path>
+      </svg>
+    </a>
+    <ul class="list-style-none d-flex flex-wrap col-12 flex-justify-center flex-lg-justify-between mb-2 mb-lg-0">
+      
+      <li class="mr-3 mr-lg-0">Theme by <a href='https://github.com/MeiK2333/github-style'>github-style</a></li>
+      
+      <li class="mr-3 mr-lg-0">GitHub and the Invertocat logo are trademarks of <a href="https://github.com/">GitHub, Inc.</a></li>
+    </ul>
+  </div>
+  <div class="d-flex flex-justify-center pb-6">
+    <span class="f6 text-gray-light"></span>
+  </div>
+
+
+</div>
+
+</body>
+
+<script type="application/javascript" src="http://localhost:1313/js/github-style.js"></script>
+
+
+
+
+
+
+
+</html>
