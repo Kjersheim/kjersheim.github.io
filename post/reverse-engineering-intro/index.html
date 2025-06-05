@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script type="application/javascript" src='https://kjersheim.github.io/js/theme-mode.js'></script>
+    <link rel="stylesheet" href='https://kjersheim.github.io/css/frameworks.min.css' />
+    <link rel="stylesheet" href='https://kjersheim.github.io/css/github.min.css' />
+    <link rel="stylesheet" href='https://kjersheim.github.io/css/github-style.css' />
+    <link rel="stylesheet" href='https://kjersheim.github.io/css/light.css' />
+    <link rel="stylesheet" href='https://kjersheim.github.io/css/dark.css' />
+    <link rel="stylesheet" href='https://kjersheim.github.io/css/syntax.css' />
+    <title>Reverse engineering, introduction labs - Kjersheim - Projects &amp; Docs</title>
+    
+    <link rel="icon" type="image/x-icon" href='https://kjersheim.github.io/images/favicon.ico'>
+    
+    <meta name="theme-color" content="#1e2327">
+
+    
+    
+
+    
+    <meta name="description"
+  content="Reverse engineering using IDA and GDB focused on Linux elf binaries." />
+<meta name="keywords"
+  content='' />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://kjersheim.github.io/post/reverse-engineering-intro/" />
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Reverse engineering, introduction labs - Kjersheim - Projects &amp; Docs" />
+<meta name="twitter:description"
+  content="Reverse engineering using IDA and GDB focused on Linux elf binaries." />
+<meta name="twitter:site" content="https://kjersheim.github.io/" />
+<meta name="twitter:creator" content="" />
+<meta name="twitter:image"
+  content="https://kjersheim.github.io/">
+
+
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Reverse engineering, introduction labs - Kjersheim - Projects &amp; Docs">
+<meta property="og:description"
+  content="Reverse engineering using IDA and GDB focused on Linux elf binaries." />
+<meta property="og:url" content="https://kjersheim.github.io/post/reverse-engineering-intro/" />
+<meta property="og:site_name" content="Reverse engineering, introduction labs" />
+<meta property="og:image"
+  content="https://kjersheim.github.io/">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2024-11-09 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+<body>
+  <div style="position: relative">
+  <header class="Header js-details-container Details px-3 px-md-4 px-lg-5 flex-wrap flex-md-nowrap open Details--on">
+    <div class="Header-item mobile-none" style="margin-top: -4px; margin-bottom: -4px;">
+      <a class="Header-link" href="https://kjersheim.github.io/">
+        <img class="octicon" height="32" width="32" src="/images/avatar.svg">
+      </a>
+    </div>
+    <div class="Header-item d-md-none">
+      <button class="Header-link btn-link js-details-target" type="button"
+        onclick="document.querySelector('#header-search').style.display = document.querySelector('#header-search').style.display == 'none'? 'block': 'none'">
+        <svg height="24" class="octicon octicon-three-bars" viewBox="0 0 16 16" version="1.1" width="24">
+          <path fill-rule="evenodd" d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z">
+          </path>
+        </svg>
+      </button>
+    </div>
+    <div style="display: none;" id="header-search"
+      class="Header-item Header-item--full flex-column flex-md-row width-full flex-order-2 flex-md-order-none mr-0 mr-md-3 mt-3 mt-md-0 Details-content--hidden-not-important d-md-flex">
+      <div
+        class="Header-search header-search flex-auto js-site-search position-relative flex-self-stretch flex-md-self-auto mb-3 mb-md-0 mr-0 mr-md-3 scoped-search site-scoped-search js-jump-to">
+        <div class="position-relative">
+          
+          <form target="_blank" action="https://www.google.com/search" accept-charset="UTF-8" method="get"
+            autocomplete="off">
+            <label
+              class="Header-search-label form-control input-sm header-search-wrapper p-0 js-chromeless-input-container header-search-wrapper-jump-to position-relative d-flex flex-justify-between flex-items-center">
+              <input type="text"
+                class="Header-search-input form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus js-site-search-field is-clearable"
+                name="q" value="" placeholder="Search" autocomplete="off">
+              <input type="hidden" name="q" value="site:https://kjersheim.github.io/">
+            </label>
+          </form>
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="Header-item Header-item--full flex-justify-center d-md-none position-relative">
+      <a class="Header-link " href="https://kjersheim.github.io/">
+        <img class="octicon octicon-mark-github v-align-middle" height="32" width="32" src="/images/avatar.svg">
+      </a>
+    </div>
+    <div class="Header-item" style="margin-right: 0;">
+      <a href="javascript:void(0)" class="Header-link no-select" onclick="switchTheme()">
+        <svg style="fill: var(--color-profile-color-modes-toggle-moon);" class="no-select" viewBox="0 0 16 16"
+          version="1.1" width="16" height="16">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M4.52208 7.71754C7.5782 7.71754 10.0557 5.24006 10.0557 2.18394C10.0557 1.93498 10.0392 1.68986 10.0074 1.44961C9.95801 1.07727 10.3495 0.771159 10.6474 0.99992C12.1153 2.12716 13.0615 3.89999 13.0615 5.89383C13.0615 9.29958 10.3006 12.0605 6.89485 12.0605C3.95334 12.0605 1.49286 10.001 0.876728 7.24527C0.794841 6.87902 1.23668 6.65289 1.55321 6.85451C2.41106 7.40095 3.4296 7.71754 4.52208 7.71754Z">
+          </path>
+        </svg>
+      </a>
+    </div>
+  </header>
+</div>
+
+  <div id="search-result" class="container-lg px-3 new-discussion-timeline" style="display: none;">
+</div>
+
+  
+<div class="application-main">
+  <div>
+  <main>
+    <div class="gisthead pagehead bg-gray-light pb-0 pt-3 mb-4">
+      <div class="px-0">
+        <div class="mb-3 d-flex px-3 px-md-3 px-lg-5">
+          <div class="flex-auto min-width-0 width-fit mr-3">
+            <div class="d-flex">
+              <div class="d-none d-md-block">
+                <a class="avatar mr-2 flex-shrink-0" href="https://kjersheim.github.io/">
+                  <img class=" avatar-user"
+                    src="/images/avatar.png"
+                    width="32" height="32"></a>
+              </div>
+              <div class="d-flex flex-column">
+                <h1 class="break-word f3 text-normal mb-md-0 mb-1">
+                  <span class="author">
+                    <a href="https://kjersheim.github.io/">Andreas</a>
+                  </span>
+                  <span class="path-divider">/</span>
+                  <strong class="css-truncate css-truncate-target mr-1" style="max-width: 410px">
+                    <a href="https://kjersheim.github.io/post/reverse-engineering-intro/">Reverse engineering, introduction labs</a>
+                  </strong>
+                </h1>
+                <div class="note m-0">
+                  Created <relative-time datetime="Sat, 09 Nov 2024 00:00:00 &#43;0000"
+                    class="no-wrap">
+                    Sat, 09 Nov 2024 00:00:00 &#43;0000</relative-time>
+
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-lg px-3 new-discussion-timeline">
+      <div class="repository-content gist-content">
+        <div>
+          <div class="js-gist-file-update-container js-task-list-container file-box">
+            <div id="file-pytest" class="file my-2">
+              <div id="post-header" class="file-header d-flex flex-md-items-center flex-items-start sticky-header" style="z-index: 2">
+                <div class="file-info d-flex flex-md-items-center flex-items-start flex-order-1 flex-auto">
+                  <div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1 mt-2 mt-md-0">
+                    
+                    <summary id="toc-toggle" onclick="clickToc()" class="btn btn-octicon m-0 mr-2 p-2">
+                      <svg aria-hidden="true" viewBox="0 0 16 16" height="16" width="16" class="octicon octicon-list-unordered">
+                        <path fill-rule="evenodd" d="M2 4a1 1 0 100-2 1 1 0 000 2zm3.75-1.5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zM3 8a1 1 0 11-2 0 1 1 0 012 0zm-1 6a1 1 0 100-2 1 1 0 000 2z"></path>
+                      </svg>
+                    </summary>
+                    <details-menu class="SelectMenu" id="toc-details" style="display: none;">
+                      <div class="SelectMenu-modal rounded-3 mt-1" style="max-height: 340px;">
+                        <div class="SelectMenu-list SelectMenu-list--borderless p-2" style="overscroll-behavior: contain;" id="toc-list">
+                        </div>
+                      </div>
+                    </details-menu>
+                      2083 Words
+                    
+
+                  </div>
+                  <div class="file-actions flex-order-2 pt-0">
+                    
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="Box-body px-5 pb-5" style="z-index: 1">
+                <article class="markdown-body entry-content container-lg"><p><img src="/images/reverse-engineering-intro/header.png"
+alt="IDA header image"
+width="900" /></p>
+<h1 id="introduction">Introduction</h1>
+<p>This article presents an in-depth walkthrough of three foundational reverse engineering labs focused on analyzing Linux ELF binaries. The goal was to gain knowledge and insight in practical tools and mental models for understanding how low-level logic is implemented in compiled executables. These exercises both developed proficiency with the IDA disassembler and debuggers like GDB, but also help build an analytical mindset needed to infer behavior from indirect cues in binary form.</p>
+<p>The progression of the labs—starting from simple integer comparison, advancing to hexadecimal parsing, and culminating in memory-based password reconstruction, gradually deepening the themes complexity. Each lab builds on the concepts introduced in the previous one while introducing a unique twist or obstacle requiring a new analysis strategy.</p>
+<h1 id="first-lab">First lab</h1>
+<h2 id="initial-binary-analysis">Initial Binary Analysis</h2>
+<p>The first step involves basic reconnaissance of the binary using native Linux tools. The file command identifies the initial binary as a 32-bit, dynamically linked ELF executable for the Intel architecture using little-endian byte ordering. The binary is also reported as &ldquo;not stripped,&rdquo; which is crucial: it retains symbol names like function labels, making reverse engineering significantly more straightforward.</p>
+<p>Following that, the xxd command provides a hexadecimal and ASCII dump of the binary, and strings reveals a list of embedded ASCII strings. These initial checks expose several informative details:</p>
+<p>The presence of human-readable strings like check_password indicates the program likely performs password validation.</p>
+<p>The use of integer formatting specifiers like %d confirms the nature of expected input.</p>
+<p>A suspicious-looking string like ;*2$”H may suggest either garbage data or some form of obfuscation.</p>
+<h2 id="disassembly-walkthrough-in-ida">Disassembly Walkthrough in IDA</h2>
+<p>The binary is loaded into IDA, where default settings are used except for several visualization improvements: enabling line prefixes, increasing the number of displayed opcodes per instruction, and activating auto-comments. This results in a more readable graph and disassembly view, especially useful for tracking stack variables and control flow.</p>
+<p><img src="/images/reverse-engineering-intro/1.jpg"
+alt="IDA Settings"
+width="400" /></p>
+<h3 id="main-function">main function</h3>
+<p>In the main function, IDA highlights a 40-byte stack frame allocation. While argc and argv are present, they are unused, possibly a leftover from compilation templates or to conform with calling conventions, as I am not using command line arguments to these binaries.</p>
+<p><img src="/images/reverse-engineering-intro/2.jpg"
+alt="Setting up stack"
+width="400" /></p>
+<p>Initially variables are set, from var_18 to var_4, are likely used for storing the information needed in the program later. It sets up a new stack by saving the base pointer (ebp), and starting the stack at the current stack pointer (esp). The size of the stack is shown as 26h, where H denotes hexadecimal, which would be a total of 40 bytes.</p>
+<p><img src="/images/reverse-engineering-intro/3.jpg"
+alt="main part 1"
+width="250" />
+<img src="/images/reverse-engineering-intro/4.jpg"
+alt="main part 2"
+width="250" /></p>
+<p>To prepare the password prompt, a label aInsertPassword (the string &ldquo;Insert password&rdquo;) is loaded into edx and pushed onto the stack. The program then calls printf, displaying this prompt to the user.</p>
+<p>After this, the program loads another label aD, representing the string format &ldquo;%d&rdquo;. This format tells the scanf function to expect an integer. This string is also pushed onto the stack.</p>
+<p>The key point here is how the program prepares the call to scanf. It pushes two arguments: the format string and the address where the user input will be stored. This address is resolved through the local variable var_8, which IDA denotes as [ebp+var_8]. At this point, the program is ready to receive user input.</p>
+<p>Once the user inputs a value, it&rsquo;s stored in var_8, and then this value is moved to a register and pushed again. The program then calls the function check_password and passes the user input as its argument.</p>
+<p>After the function call returns, the eax register is cleared using an XOR instruction (a common idiom for setting a register to zero), and the stack is cleaned up by restoring esp and ebp. The function returns control to the operating system, completing the main function. A brief summary:</p>
+<pre><code>Stack allocation and addressing using ebp
+
+Preparing function arguments using push and registers
+
+The role of format strings and buffers in scanf
+
+Flow control using call, xor, and ret
+</code></pre>
+<h3 id="check_password-function">check_password function</h3>
+<p>After the main function collects user input and passes it into check_password, this function performs the actual validation logic. As with typical x86 calling conventions, the input value (an integer from scanf) is passed as the first argument on the stack.</p>
+<p><img src="/images/reverse-engineering-intro/5.jpg"
+alt="check_password function"
+width="250" /></p>
+<p>After setting up a stack frame, allocating 8 bytes of local storage, the user input value is accessed from the stack using the offset [ebp+arg_0], which IDA recognizes as the argument passed into the function. This value is moved into eax for use in the comparison</p>
+<pre><code>mov eax, [ebp+arg_0]
+cmp [ebp+arg_0], 539h
+</code></pre>
+<p>The comparison checks if the user-supplied value matches the hardcoded number 0x539, which is 1337 in decimal. If the values are not equal, the program jumps to a label (loc_80491A9) that handles incorrect input.</p>
+<p>If the comparison succeeds, the function continues to the success branch. It loads the address of the string label aCorrect into eax, pushes it onto the stack, and calls printf to print the message “correct”.</p>
+<p>After printing the success message, the function skips over the incorrect handler by jumping directly to the cleanup block at loc_80491B7.</p>
+<p>Finally, the function concludes with stack cleanup. It restores the original esp position by adding back the 8 bytes previously subtracted, restores the ebp value, and returns execution back to main.</p>
+<h1 id="second-lab">Second lab</h1>
+<h2 id="overview">Overview</h2>
+<p>The second lab builds upon the foundational logic introduced in Lab 01. While the program flow and structure are broadly similar, Lab 02 introduces additional complexity through format string parsing and hexadecimal interpretation. This lab shows a bit more of the subtleties of user input conversion, showcasing how data can be interpreted differently based on the functions used and their format specifiers.</p>
+<p>Just like the first lab, the binary is a 32-bit dynamically linked ELF file with debugging symbols left intact (not stripped), allowing us to see named functions like main and check_password.</p>
+<h2 id="ida-inspection-and-main-function-flow">IDA inspection and main function flow</h2>
+<p>I load the binary into IDA using the same preferred settings: enabling line prefixes, showing additional opcode bytes, and enabling auto-comments for better orientation. The main function structure and setup will look familiar by now.</p>
+<img src="/images/reverse-engineering-intro/6.jpg" alt="IDA view showing stack setup" width="250" />
+<p>The program begins by setting up a stack frame. As before, it subtracts space from esp—in this case, 40 bytes (0x28)—which is reserved for local variables. The variables initialized are similar in naming convention (e.g., var_4, var_8, etc.) and structure to the first lab. Their purpose becomes clearer as I analyze how values move through the registers and memory.</p>
+<p>The printf function is used again to present a password prompt to the user:</p>
+<pre><code>lea edx, aPassword
+mov [esp], edx
+call _printf
+</code></pre>
+<p>This instructs the program to print the static string “Password:”, loaded from the .rodata section of the binary. The format string is positioned on the stack and printf is called to output it.</p>
+<p>Next comes a call to scanf, just like in the first lab. However, there&rsquo;s a difference: instead of collecting an integer directly, this version prepares to treat the input more like a string that will later be interpreted, unlike lab01 where the integer was compared directly.</p>
+<img src="/images/reverse-engineering-intro/7.jpg" alt="main preparing format string for scanf" width="250" />
+<p>At this point, the integer entered by the user is stored in var_8. The value is moved from var_8 into ecx, pushed onto the stack again, and then passed as an argument to the check_password function.</p>
+<h2 id="check_password-function-1">check_password function</h2>
+<p>Once inside check_password, the logic change toward a more indirect form of comparison. Instead of checking the value directly like in Lab 01, the program performs an intermediate conversion using sscanf. The function starts by setting up an 0x18-byte stack frame, which is slightly larger than before, and defines three variables: arg_0 (user input from main), var_4, and var_8.</p>
+<img src="/images/reverse-engineering-intro/8.jpg" alt="check_password overview" width="900" />
+<p>Next, var_4 is cleared to make sure it has a clean state before conversion. Now I hit the core of this lab’s difference: the function uses sscanf to parse a hex string (%x) from the user’s decimal input.</p>
+<img src="/images/reverse-engineering-intro/9.jpg" alt="check_password entry and sscanf setup" width="900" />
+<pre><code>lea ecx, [ebp+var_4]
+mov [esp+8], ecx
+mov [esp+4], offset asc_804A00F  ; &quot;%x&quot;
+mov [esp], eax                   ; user input from main
+call _sscanf
+</code></pre>
+<p>Here, three arguments are prepared on the stack for sscanf, which converts the user input integer into a hexadecimal format, and stores the result in var_4.</p>
+<pre><code>The string to read (from the user’s decimal input).
+
+The format specifier (%x)—telling the function to interpret the input as a hexadecimal.
+
+The destination address where the result should be stored (var_4).
+</code></pre>
+<p>Continuing, the program runs a compare vs a specific hexadecimal value 0xBEEF, and if the result from the sscanf converted value matches this the password is correct. Otherwise, the program jumps to a block where an “incorrect” message is printed.</p>
+<h1 id="lab-three">Lab three</h1>
+<h2 id="overview-1">Overview</h2>
+<p>Lab 03 is a bigger step forward in terms of complexity. It changes from using static values or format-parsed input to a form of dynamic password generation through memory manipulation. While the setup phase in main is familiar by now, the behavior inside check_password introduces techniques like looping, array copying, and runtime buffer construction. This type of behavior is closer to what might be seen in obfuscated binaries or malware attempting to hide sensitive logic from direct static analysis.</p>
+<p>The password is not visible as a constant and isn&rsquo;t compared directly in its original format. Instead, it is built piece by piece at runtime and then compared against the user’s input using a string comparison.</p>
+<h2 id="ida-inspection-and-main-function-flow-1">IDA inspection and main function flow</h2>
+<p>As with previous labs, the binary is loaded in IDA with the same settings, giving a clean, organized disassembly view. The main function is again responsible for initializing the stack, printing a password prompt, and receiving the user’s input, this time as a string instead of an integer.</p>
+<img src="/images/reverse-engineering-intro/10.jpg" alt="main stack and input setup for lab03" width="250" />
+<p>The user input is read with</p>
+<pre><code>scanf(&quot;%s&quot;, &amp;var_40)
+</code></pre>
+<p>The program is using %s to capture string input. This hints that we’re moving into string comparison territory. The user’s string is stored in a memory location (var_40), which is then passed to check_password.</p>
+<h2 id="check_password-function-2">check_password function</h2>
+<p>The bulk of the logics sits in the check_password function. It no longer compares integers or single values. Instead, it constructs a password by copying memory and manipulating it in a loop. Once the password is built in memory, the user’s input is compared to the built string using strcmp.</p>
+<p>The function begins by setting up a stack frame of 100 bytes (0x64) and defining multiple local variables. As shown in previous labs, the user input is passed via arg_0 and is saved into a local buffer.</p>
+<img src="/images/reverse-engineering-intro/11.jpg" alt="check_password stack and memcpy in lab03" width="400" />
+<p>The first major operation is a memcpy call, which copies a fixed memory structure into var_40. This is a static structure embedded in the binary—likely the base for constructing the password. The copy is set for a total of 60 bytes (0x3C), and three arguments are passed:</p>
+<pre><code>Destination: var_40
+
+Source: hardcoded structure in data section
+
+Length: 0x3C
+</code></pre>
+<p>This builds a raw buffer of values that are then interpreted or modified.</p>
+ <img src="/images/reverse-engineering-intro/12.jpg" alt="memset and structure prep" width="400" /> 
+<p>Following memcpy, a memset call zeros out another memory region, var_50, which will hold the constructed password string. This prepares the destination buffer for clean construction without garbage data. 16 bytes are cleared here—likely the maximum password length expected.</p>
+<h3 id="password-loop">Password loop</h3>
+<p>The next portion of the function is a loop that executes 16 times. It uses a loop counter and a base index into var_40, multiplied by 4 each iteration (indicating word-aligned values). This looks like the function is calculating an offset inside var_40, moving that value into a register, and writing it into the corresponding index of var_50.</p>
+<img src="/images/reverse-engineering-intro/13.jpg" alt="loop building password string" width="900" /> 
+<p>This part is particularly interesting because it introduces indirect computation. Instead of comparing a fixed value, the program is now dynamically assembling the correct password from values embedded in the binary, but only visible at runtime.</p>
+<p>The loop ends when the counter reaches 15, and the full password string is now ready in var_50.</p>
+<h3 id="string-comparison-and-validation">String comparison and validation</h3>
+<p>After the password has been built, the function performs a direct string comparison using strcmp</p>
+<pre><code>strcmp(var_50, user_input)
+</code></pre>
+<p>If the comparison returns zero (meaning the strings match exactly), then the program prints the success message</p>
+<pre><code>printf(&quot;correct&quot;)
+</code></pre>
+<img src="/images/reverse-engineering-intro/14.jpg" alt="final comparison and branch" width="400" /> 
+<h3 id="extracting-the-password-with-gdb">Extracting the Password with GDB</h3>
+<p>Because the password is built dynamically in memory, I did not find a way for it to be discovered through IDA alone. The only way I could figure out to see what var_50 ends up containing is to inspect it at runtime.</p>
+<p>To do this, I used GDB and set a breakpoint just before the strcmp call. Then I used the following command to dump the string in memory:</p>
+<pre><code>display/s $ebp-0x50
+</code></pre>
+<p>This reads the password directly from the var_50 buffer in RAM, and reveals the correct string that the user must input.</p>
+<img src="/images/reverse-engineering-intro/15.jpg" alt="gdb displaying constructed password" width="500" />
+<p>And finally</p>
+<img src="/images/reverse-engineering-intro/16.jpg" alt="gdb displaying constructed password" width="500" /></article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script type="application/javascript" src='https://kjersheim.github.io/js/toc.js'></script>
+<link rel="stylesheet" href='https://kjersheim.github.io/css/toc.css' />
+
+  
+</div>
+
+  <div class="footer container-xl width-full p-responsive">
+  <div
+    class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between flex-sm-items-center pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
+    <a aria-label="Homepage" title="GitHub" class="footer-octicon d-none d-lg-block mr-lg-4" href="https://kjersheim.github.io/">
+      <svg height="24" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="24">
+        <path fill-rule="evenodd"
+          d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+        </path>
+      </svg>
+    </a>
+    <ul class="list-style-none d-flex flex-wrap col-12 flex-justify-center flex-lg-justify-between mb-2 mb-lg-0">
+      
+      <li class="mr-3 mr-lg-0">Theme by <a href='https://github.com/MeiK2333/github-style'>github-style</a></li>
+      
+      <li class="mr-3 mr-lg-0">GitHub and the Invertocat logo are trademarks of <a href="https://github.com/">GitHub, Inc.</a></li>
+    </ul>
+  </div>
+  <div class="d-flex flex-justify-center pb-6">
+    <span class="f6 text-gray-light"></span>
+  </div>
+
+
+</div>
+
+</body>
+
+<script type="application/javascript" src="https://kjersheim.github.io/js/github-style.js"></script>
+
+
+
+
+
+
+
+</html>
