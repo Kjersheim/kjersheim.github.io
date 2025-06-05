@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script type="application/javascript" src='https://kjersheim.github.io/js/theme-mode.js'></script>
+    <link rel="stylesheet" href='https://kjersheim.github.io/css/frameworks.min.css' />
+    <link rel="stylesheet" href='https://kjersheim.github.io/css/github.min.css' />
+    <link rel="stylesheet" href='https://kjersheim.github.io/css/github-style.css' />
+    <link rel="stylesheet" href='https://kjersheim.github.io/css/light.css' />
+    <link rel="stylesheet" href='https://kjersheim.github.io/css/dark.css' />
+    <link rel="stylesheet" href='https://kjersheim.github.io/css/syntax.css' />
+    <title>Shellcode part 2 - Kjersheim - Projects &amp; Docs</title>
+    
+    <link rel="icon" type="image/x-icon" href='https://kjersheim.github.io/images/favicon.ico'>
+    
+    <meta name="theme-color" content="#1e2327">
+
+    
+    
+
+    
+    <meta name="description"
+  content="Notes and thoughts from an exercise testing shellcodes, building upon shellcode part 1" />
+<meta name="keywords"
+  content='' />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://kjersheim.github.io/post/shellcode-part2/" />
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Shellcode part 2 - Kjersheim - Projects &amp; Docs" />
+<meta name="twitter:description"
+  content="Notes and thoughts from an exercise testing shellcodes, building upon shellcode part 1" />
+<meta name="twitter:site" content="https://kjersheim.github.io/" />
+<meta name="twitter:creator" content="" />
+<meta name="twitter:image"
+  content="https://kjersheim.github.io/">
+
+
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Shellcode part 2 - Kjersheim - Projects &amp; Docs">
+<meta property="og:description"
+  content="Notes and thoughts from an exercise testing shellcodes, building upon shellcode part 1" />
+<meta property="og:url" content="https://kjersheim.github.io/post/shellcode-part2/" />
+<meta property="og:site_name" content="Shellcode part 2" />
+<meta property="og:image"
+  content="https://kjersheim.github.io/">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2024-12-15 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+<body>
+  <div style="position: relative">
+  <header class="Header js-details-container Details px-3 px-md-4 px-lg-5 flex-wrap flex-md-nowrap open Details--on">
+    <div class="Header-item mobile-none" style="margin-top: -4px; margin-bottom: -4px;">
+      <a class="Header-link" href="https://kjersheim.github.io/">
+        <img class="octicon" height="32" width="32" src="/images/avatar.svg">
+      </a>
+    </div>
+    <div class="Header-item d-md-none">
+      <button class="Header-link btn-link js-details-target" type="button"
+        onclick="document.querySelector('#header-search').style.display = document.querySelector('#header-search').style.display == 'none'? 'block': 'none'">
+        <svg height="24" class="octicon octicon-three-bars" viewBox="0 0 16 16" version="1.1" width="24">
+          <path fill-rule="evenodd" d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z">
+          </path>
+        </svg>
+      </button>
+    </div>
+    <div style="display: none;" id="header-search"
+      class="Header-item Header-item--full flex-column flex-md-row width-full flex-order-2 flex-md-order-none mr-0 mr-md-3 mt-3 mt-md-0 Details-content--hidden-not-important d-md-flex">
+      <div
+        class="Header-search header-search flex-auto js-site-search position-relative flex-self-stretch flex-md-self-auto mb-3 mb-md-0 mr-0 mr-md-3 scoped-search site-scoped-search js-jump-to">
+        <div class="position-relative">
+          
+          <form target="_blank" action="https://www.google.com/search" accept-charset="UTF-8" method="get"
+            autocomplete="off">
+            <label
+              class="Header-search-label form-control input-sm header-search-wrapper p-0 js-chromeless-input-container header-search-wrapper-jump-to position-relative d-flex flex-justify-between flex-items-center">
+              <input type="text"
+                class="Header-search-input form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus js-site-search-field is-clearable"
+                name="q" value="" placeholder="Search" autocomplete="off">
+              <input type="hidden" name="q" value="site:https://kjersheim.github.io/">
+            </label>
+          </form>
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="Header-item Header-item--full flex-justify-center d-md-none position-relative">
+      <a class="Header-link " href="https://kjersheim.github.io/">
+        <img class="octicon octicon-mark-github v-align-middle" height="32" width="32" src="/images/avatar.svg">
+      </a>
+    </div>
+    <div class="Header-item" style="margin-right: 0;">
+      <a href="javascript:void(0)" class="Header-link no-select" onclick="switchTheme()">
+        <svg style="fill: var(--color-profile-color-modes-toggle-moon);" class="no-select" viewBox="0 0 16 16"
+          version="1.1" width="16" height="16">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M4.52208 7.71754C7.5782 7.71754 10.0557 5.24006 10.0557 2.18394C10.0557 1.93498 10.0392 1.68986 10.0074 1.44961C9.95801 1.07727 10.3495 0.771159 10.6474 0.99992C12.1153 2.12716 13.0615 3.89999 13.0615 5.89383C13.0615 9.29958 10.3006 12.0605 6.89485 12.0605C3.95334 12.0605 1.49286 10.001 0.876728 7.24527C0.794841 6.87902 1.23668 6.65289 1.55321 6.85451C2.41106 7.40095 3.4296 7.71754 4.52208 7.71754Z">
+          </path>
+        </svg>
+      </a>
+    </div>
+  </header>
+</div>
+
+  <div id="search-result" class="container-lg px-3 new-discussion-timeline" style="display: none;">
+</div>
+
+  
+<div class="application-main">
+  <div>
+  <main>
+    <div class="gisthead pagehead bg-gray-light pb-0 pt-3 mb-4">
+      <div class="px-0">
+        <div class="mb-3 d-flex px-3 px-md-3 px-lg-5">
+          <div class="flex-auto min-width-0 width-fit mr-3">
+            <div class="d-flex">
+              <div class="d-none d-md-block">
+                <a class="avatar mr-2 flex-shrink-0" href="https://kjersheim.github.io/">
+                  <img class=" avatar-user"
+                    src="/images/avatar.png"
+                    width="32" height="32"></a>
+              </div>
+              <div class="d-flex flex-column">
+                <h1 class="break-word f3 text-normal mb-md-0 mb-1">
+                  <span class="author">
+                    <a href="https://kjersheim.github.io/">Andreas</a>
+                  </span>
+                  <span class="path-divider">/</span>
+                  <strong class="css-truncate css-truncate-target mr-1" style="max-width: 410px">
+                    <a href="https://kjersheim.github.io/post/shellcode-part2/">Shellcode part 2</a>
+                  </strong>
+                </h1>
+                <div class="note m-0">
+                  Created <relative-time datetime="Sun, 15 Dec 2024 00:00:00 &#43;0000"
+                    class="no-wrap">
+                    Sun, 15 Dec 2024 00:00:00 &#43;0000</relative-time>
+
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-lg px-3 new-discussion-timeline">
+      <div class="repository-content gist-content">
+        <div>
+          <div class="js-gist-file-update-container js-task-list-container file-box">
+            <div id="file-pytest" class="file my-2">
+              <div id="post-header" class="file-header d-flex flex-md-items-center flex-items-start sticky-header" style="z-index: 2">
+                <div class="file-info d-flex flex-md-items-center flex-items-start flex-order-1 flex-auto">
+                  <div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1 mt-2 mt-md-0">
+                    
+                    <summary id="toc-toggle" onclick="clickToc()" class="btn btn-octicon m-0 mr-2 p-2">
+                      <svg aria-hidden="true" viewBox="0 0 16 16" height="16" width="16" class="octicon octicon-list-unordered">
+                        <path fill-rule="evenodd" d="M2 4a1 1 0 100-2 1 1 0 000 2zm3.75-1.5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zM3 8a1 1 0 11-2 0 1 1 0 012 0zm-1 6a1 1 0 100-2 1 1 0 000 2z"></path>
+                      </svg>
+                    </summary>
+                    <details-menu class="SelectMenu" id="toc-details" style="display: none;">
+                      <div class="SelectMenu-modal rounded-3 mt-1" style="max-height: 340px;">
+                        <div class="SelectMenu-list SelectMenu-list--borderless p-2" style="overscroll-behavior: contain;" id="toc-list">
+                        </div>
+                      </div>
+                    </details-menu>
+                      1368 Words
+                    
+
+                  </div>
+                  <div class="file-actions flex-order-2 pt-0">
+                    
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="Box-body px-5 pb-5" style="z-index: 1">
+                <article class="markdown-body entry-content container-lg"><h1 id="shellcode-part-2">Shellcode Part 2</h1>
+<h2 id="objective-and-scope">Objective and scope</h2>
+<p>This exercise builds upon the basics established in Shellcode Part 1 by advancing to more realistic payload injection scenarios. The primary objective is to develop a shellcode that, when injected through three distinct methods (stdin, file, command-line argument), consistently executes and displays the string &ldquo;TTC6520-3003!&rdquo;, followed by an exit with status code 0. The payload must also comply with typical shellcode constraints: namely, the exclusion of null-bytes (\x00) and efficient execution inside a constrained memory region.</p>
+<p>As an initial test, I used the payload from part 1 using GDB. The purpose of this was to see how the program reacted to the input.</p>
+<p><img src="/images/shellcode-part2/1.jpg" alt="Shellcode from part 1"></p>
+<p>I sat a breakpoint at the function vulnerable, break vulnerable. From the looks of it, the buffer is reset at the next line (17).
+Used next till I was at line 18, then inspecting the local buffer var with print &amp;buffer as bytes which is what our payload is constructed by:</p>
+<p><img src="/images/shellcode-part2/2.jpg"
+alt="Shellcode from part 1, running through GDB"
+width="700" /></p>
+<p>Next, I tried to find out how big the buffer needs to be before it overwrites the EIP in the program after the vulnerable function is done</p>
+<p><img src="/images/shellcode-part2/3.jpg"
+alt="Testing input of different sizes, to determine how long of a payload and sled I need"
+width="700" /></p>
+<p>From the testing it seems buffer fills up the last part of the return address of the function vulnerable with 144 bytes</p>
+<h2 id="understanding-the-vulnerability">Understanding the vulnerability</h2>
+<p>The shell_1.c file contains a vulnerable function named vulnerable(). This function allocates a 128-byte buffer and uses memcpy() to copy data from a user-supplied pointer (p) to the buffer. However, there is no bounds checking, meaning that a well-crafted input can overwrite memory beyond the allocated buffer, specifically targeting the saved return address on the stack.</p>
+<h2 id="stack-frame-explanation">Stack frame explanation</h2>
+<p>When the function is called, the call instruction pushes the return address onto the stack. The function then sets up a new stack frame. Upon return, the CPU pops the saved return address from the stack into the EIP register. By overflowing the buffer and strategically placing a new return address pointing to a NOP-sled followed by shellcode, I redirect execution into our payload.</p>
+<h2 id="payload-first-thoughts">Payload, first thoughts</h2>
+<p>The first strategy followed the following layout:</p>
+<pre><code>NOP-sled: Allows some flexibility in the return address.
+
+Shellcode: Injected code to execute the desired command.
+
+Padding: Filler bytes to match expected buffer length.
+
+Return address: Overwrites the saved return pointer on the stack.
+</code></pre>
+<p>Initially, the payload size was limited to 144 bytes due to the buffer constraints in the vulnerable function.</p>
+<p><img src="/images/shellcode-part2/4.jpg"
+alt="More testing"
+width="500"/></p>
+<p><img src="/images/shellcode-part2/5.jpg"
+alt="More testing"
+width="500" /></p>
+<p>However, outside of GDB, the payload failed to work. This prompted a hypothesis that Address Space Layout Randomization (ASLR) might be interfering. Disabling ASLR was an essential step, as shellcode execution relies on predictable memory addresses.</p>
+<p>Despite turning off ASLR, the shellcode still failed. Investigation revealed that the issue might lie in the small payload size and randomization in stack usage across different input methods.</p>
+<h2 id="determining-the-buffer-address">Determining the buffer address</h2>
+<p>Using GDB, the buffer address during vulnerable() was identified as approximately 0xffffbdd0.</p>
+<p>From this, a target NOP-sled region was planned:</p>
+<pre><code>Start: 0xffffbdd0
+
+End: 0xffffbe0c (with a 60-byte sled)
+</code></pre>
+<p>The goal was to place the return address somewhere within this range. However, as tests with multiple return addresses failed, a change in strategy was needed.</p>
+<p><img src="/images/shellcode-part2/6.jpg"
+alt="More testing"
+width="900" /></p>
+<h2 id="bigger-payload">Bigger payload</h2>
+<p>After further testing, the shellcode and NOP-sled were placed after the return address instead of before. This shift allowed for a significantly larger payload, closer to the 4096-byte buffer size used in the main application context.</p>
+<p>This new payload strategy allowed the exploit to succeed when input was provided via stdin and file. However, the -c option (command-line argument) required a different layout. This led to in-depth analysis using GDB.</p>
+<h2 id="gdb-comparison-between-modes">GDB comparison between modes</h2>
+<p>I created a quick script that wrote a simple payload with A’s, B’s and a NOP-sled. Then I used the same file in gdb –args ./shell_1 for both -f option and -c option.</p>
+<p>From the results of this, it seemed like the return address differ by about 0x100 (256 bytes), which could be explained by how the argv is being handled in -c mode.
+In both cases, the buffer length is the same so my return address in the payload can be at the same location. However, the actual address of the EIP from the vulnerable function seems to differ.</p>
+<p>Giving it a new go, comparing how it looks on the stack for both -c (left) and -f (right on the picture below)</p>
+<p><img src="/images/shellcode-part2/7.jpg"
+alt="More testing"
+width="900" /></p>
+<p>The overlap of usable address ranges in both modes was:</p>
+<p>Common NOP-sled zone: 0xffffbed0 to 0xffffbe20</p>
+<p>This showed that although the payload is the same, the return address must be selected based on how the input is delivered. This is due to how the shell_1 binary handles arguments and buffers.</p>
+<p>Continuing testing, I continued with the script adding a payload to attempt to cover both options:</p>
+<p><img src="/images/shellcode-part2/8.jpg"
+alt="More testing"
+width="900" /></p>
+<p>And testing for both -c and -f side by side to easier visualize the differences.</p>
+<p><img src="/images/shellcode-part2/9.jpg"
+alt="More testing"
+width="900" /></p>
+<p>Before starting any new lines, checking the stack to see addresses up there, and I see -c start very early with bb00 and -f is already at be</p>
+<p><img src="/images/shellcode-part2/10.jpg"
+alt="More testing"
+width="900" /></p>
+<p>And at the end of the NOP sled, -c ends at be and -f ends at c1</p>
+<p><img src="/images/shellcode-part2/11.jpg"
+alt="More testing"
+width="900" /></p>
+<h2 id="dual-payloads">Dual payloads</h2>
+<p>Given the variation in stack behavior, two separate payloads were generated:</p>
+<p>Payload A: Tuned for stdin/file input.</p>
+<p>Payload B: Tuned for command-line input.</p>
+<p>Both payloads were created using a Python script that:</p>
+<pre><code>Constructs a large NOP-sled.
+
+Inserts the null-free shellcode.
+
+Adds padding.
+
+Appends the appropriate return address.
+</code></pre>
+<p><img src="/images/shellcode-part2/12.jpg"
+alt="Dual payload, final script"
+width="900" /></p>
+<p>Pseudocode:</p>
+<pre><code> Define shellcode (pre-assembled payload to execute).
+ Set buffer size to match the overflow threshold.
+ Set specific return addresses for each payload type:
+ - One for command-line input (-c)
+ - One for file input (-f)
+ Define NOP sled sizes:
+ - Large sled for command-line payload
+ - Smaller sled for file-based payload
+ Create each payload:
+ - Payload = 'A' * buffer + return address + NOP sled + shellcode
+ Save both payloads to binary files:
+ - payload_command.bin
+ - payload_file.bin
+</code></pre>
+<p>With the dual payload setup, the script worked as intended for all options.</p>
+<p><img src="/images/shellcode-part2/13.jpg"
+alt="Final script successful test"
+width="900" /></p>
+<h1 id="part-3-toward-malicious-shellcode">Part 3: toward malicious shellcode</h1>
+<p>The next phase of the exercise introduces another change. Rather than simply printing a message, the goal is to build shellcode that executes arbitrary commands, such as spawning a shell or executing system binaries. This opens the door to command execution vulnerabilities, commonly exploited in real-world attacks.</p>
+<p>For example, replacing the print+exit shellcode with:</p>
+<pre><code>xor    eax,eax
+push   eax
+push   0x68732f2f ; // '//sh'
+push   0x6e69622f ; // '/bin'
+mov    ebx,esp
+mov    al,0xb
+xor    ecx,ecx
+xor    edx,edx
+int    0x80
+</code></pre>
+<p>Would allow execution of /bin//sh, launching an interactive shell. This type of payload is commonly used in reverse shells and privilege escalation exploits.</p>
+<h2 id="testing">Testing</h2>
+<p>In the Python script used to generate the attack input, the existing print-only shellcode is replaced with this more dangerous version. The payload is structured by first filling the buffer with &ldquo;A&rdquo; characters to reach the vulnerable offset, then appending a crafted return address, followed by a NOP sled, and finally appending the shellcode bytes. Two different payloads are created: one for use with file input, and another for command-line argument injection.</p>
+<p>The custom assembly (part2_payload.asm) is written to call the execve system call, which executes a new process. In this case, the process is a shell. The code first zeroes out eax, then pushes the string &ldquo;/bin//sh&rdquo; onto the stack. Registers are assigned to point to this location, and the syscall number for execve (which is 11) is loaded into eax. Finally, int 0x80 is used to execute the syscall. This results in a new shell being spawned if successful.</p>
+<p><img src="/images/shellcode-part2/14.jpg"
+alt="Part 3 payload asm script"
+width="900" /></p>
+<p>Testing the payload confirms there are no null-bytes and I can proceed.</p>
+<p><img src="/images/shellcode-part2/15.jpg"
+alt="Part 3 shellcode"
+width="900" /></p>
+<p>Replacing the previous shellcode with the new more malicious one.
+<img src="/images/shellcode-part2/16.jpg"
+alt="Part 3 python script"
+width="900" /></p>
+<p><img src="/images/shellcode-part2/17.jpg"
+alt="Shell opened"
+width="900" /></p>
+<p>Once the payload is written and the vulnerable program (shell_1) is executed using the file-based payload, the shellcode is executed. This is confirmed by running commands such as whoami and pwd inside the newly spawned shell. The output of these commands verifies that the shell is active and running with the same privileges as the vulnerable program.</p>
+<p>In particular, this final test shows the practical impact of buffer overflow vulnerabilities, especially when mitigations like stack canaries or non-executable stacks are absent or weak. It transitions the exercise from a theoretical flag-capturing task to a real-world example of arbitrary code execution using custom shellcode.</p>
+</article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script type="application/javascript" src='https://kjersheim.github.io/js/toc.js'></script>
+<link rel="stylesheet" href='https://kjersheim.github.io/css/toc.css' />
+
+  
+</div>
+
+  <div class="footer container-xl width-full p-responsive">
+  <div
+    class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between flex-sm-items-center pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
+    <a aria-label="Homepage" title="GitHub" class="footer-octicon d-none d-lg-block mr-lg-4" href="https://kjersheim.github.io/">
+      <svg height="24" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="24">
+        <path fill-rule="evenodd"
+          d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+        </path>
+      </svg>
+    </a>
+    <ul class="list-style-none d-flex flex-wrap col-12 flex-justify-center flex-lg-justify-between mb-2 mb-lg-0">
+      
+      <li class="mr-3 mr-lg-0">Theme by <a href='https://github.com/MeiK2333/github-style'>github-style</a></li>
+      
+      <li class="mr-3 mr-lg-0">GitHub and the Invertocat logo are trademarks of <a href="https://github.com/">GitHub, Inc.</a></li>
+    </ul>
+  </div>
+  <div class="d-flex flex-justify-center pb-6">
+    <span class="f6 text-gray-light"></span>
+  </div>
+
+
+</div>
+
+</body>
+
+<script type="application/javascript" src="https://kjersheim.github.io/js/github-style.js"></script>
+
+
+
+
+
+
+
+</html>
